@@ -23,18 +23,23 @@ namespace StratRoulette
 						"~/Scripts/modernizr-*"));
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-					  "~/Scripts/bootstrap.min.js",
+					  "~/Scripts/mdb/bootstrap.min.js",
+					  "~/Scripts/mdb/mdb.min.js",
+					  "~/Scripts/mdb/tether.min.js",
+					  "~/Scripts/mdb/jquery-2.2.3.min.js",
 					  "~/Scripts/respond.min.js",
 					  "~/Scripts/app.min.js",
 					  "~/Scripts/image-picker.min.js",
 					  "~/Scripts/chartist.min.js",
 					  "~/Scripts/jquery.dataTables.min.js"));
 
-			bundles.Add(new StyleBundle("~/Content/css").Include(
-						"~/Content/css/bootstrap.min.css",
+			bundles.Add(new StyleBundle("~/bundles/css").Include(
+						"~/Content/css/mdb/bootstrap.min.css",
 						"~/Content/css/site.css",
-						"~/Content/css/AdminLTE.min.css",
-						"~/Content/css/skins/_all-skins.min.css",
+						"~/Content/css/mdb/mdb.min.css",
+						"~/Content/css/mdb/style.css",
+						//"~/Content/css/AdminLTE.min.css",
+						//"~/Content/css/skins/_all-skins.min.css",
 						"~/Content/css/ionicons.min.css",
 						"~/Content/css/font-awesome.min.css",
 						"~/Content/css/image-picker.css",

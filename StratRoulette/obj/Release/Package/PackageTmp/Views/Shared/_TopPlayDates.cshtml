@@ -1,0 +1,32 @@
+﻿@model List<StratRoulette.Models.StatisticModel>
+
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">Top play days</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<table id="topPlayDatesTable" class="display">
+			<thead>
+				<tr>
+					<th>Nr.</th>
+					<th>Date</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (var j = 0; j < Model.Count; j++)
+				{
+					<tr>
+						<td>@(j + 1)</td>
+						<td>@Model[j].Date.Value.ToShortDateString()</td>
+						<td>@Model[j].Total</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+	</div><!-- /.box-body -->
+</div><!-- /.box -->

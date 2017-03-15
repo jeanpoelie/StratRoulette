@@ -1,0 +1,39 @@
+﻿@model List<StratRoulette.Models.ChallengeModel>
+@{
+	ViewBag.Title = "Strat Roulette Management Home";
+	Layout = "~/Views/Shared/_ManagementLayout.cshtml";
+}
+
+@*<img src="~/Content/Images/banner.jpg" class="img-responsive"/> <br/>*@
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">Welcome to Strat Roulette, here you can well... manage stuff.</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<p>Welcome to the management department.</p>
+		<table class="table table-responsive table-bordered" id="sortingTable">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Difficulty</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			</tbody>
+		</table>
+	</div><!-- /.box-body -->
+</div><!-- /.box -->
+
+@section scripts {
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#sortingTable').DataTable();
+		});
+	</script>
+}

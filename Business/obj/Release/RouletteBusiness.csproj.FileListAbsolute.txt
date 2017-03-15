@@ -1,0 +1,15 @@
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\RouletteBusiness.dll
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\RouletteBusiness.pdb
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\MySql.Data.dll
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\obj\Release\RouletteBusiness.csprojResolveAssemblyReference.cache
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\obj\Release\RouletteBusiness.dll
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\obj\Release\RouletteBusiness.pdb
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\RouletteBusiness.dll.config
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\Google.ProtocolBuffers.dll
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\Google.ProtocolBuffers.Serialization.dll
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\Google.ProtocolBuffers.xml
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\Google.ProtocolBuffers.Serialization.xml
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\MySql.Data.xml
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\Elmah.dll
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\Elmah.Mvc.dll
+F:\Documenten\Visual Studio 2015\Projects\Dakpan\StratRoulette\RouletteBusiness\bin\Release\System.Data.SqlServerCe.dll

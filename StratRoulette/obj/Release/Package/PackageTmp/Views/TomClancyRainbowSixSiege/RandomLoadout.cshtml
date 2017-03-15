@@ -1,0 +1,153 @@
+﻿@using StratRoulette.Models
+@using StratRoulette.Extensions
+@model OperatorModel
+@{
+	ViewBag.Title = "Random Loadout";
+	var defendList = ViewBag.DefendList as IList<OperatorModel>;
+	var attackList = ViewBag.AttackList as IList<OperatorModel>;
+	var maxPlayers = 10;
+}
+
+
+@if (Model != null && !string.IsNullOrEmpty(Model.Name))
+{
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">Loadout</h3>
+			<div class="box-tools pull-right">
+				<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div><!-- /.box-tools -->
+		</div><!-- /.box-header -->
+		<div class="box-body">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="box box-default">
+						<div class="box-header with-border">
+							<h3 class="box-title"><strong>Operator: @(Model.Name)</strong></h3>
+						</div><!-- /.box-header -->
+						<div class="box-body">
+							<img src="~/Content/Images/Tom Clancy's Rainbow Six Siege/Operators/@(Model.Name)_Badge.png"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="box box-default">
+						<div class="box-header with-border">
+							@if (Model.Loadout != null && Model.Loadout.Any() && Model.Loadout.FirstOrDefault(l => l.Type == "Primary") != null)
+							{
+								<h3 class="box-title"><strong>Primary: @Model.Loadout.FirstOrDefault(l => l.Type == "Primary").Name</strong></h3>
+							}
+							else
+							{
+								<p>No "Primary" gun known for this operator.</p>
+							}
+						</div><!-- /.box-header -->
+						<div class="box-body">
+							@if (Model.Loadout != null && Model.Loadout.Any() && Model.Loadout.FirstOrDefault(l => l.Type == "Primary") != null)
+							{
+								<img src="~/Content/Images/Tom Clancy's Rainbow Six Siege/Operators/Loadout/@(Model.Loadout.FirstOrDefault(l => l.Type == "Primary").Name).jpg" />
+							}
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-sm-3">
+					<div class="box box-default">
+						<div class="box-header with-border">
+							@if (Model.Loadout != null && Model.Loadout.Any() && Model.Loadout.FirstOrDefault(l => l.Type == "Secondary") != null)
+							{
+								<h3 class="box-title"><strong>Secondary: @Model.Loadout.FirstOrDefault(l => l.Type == "Secondary").Name</strong></h3>
+							}
+							else
+							{
+								<p>No "Secondary" gun known for this operator.</p>
+							}
+						</div><!-- /.box-header -->
+						<div class="box-body">
+							@if (Model.Loadout != null && Model.Loadout.Any() && Model.Loadout.FirstOrDefault(l => l.Type == "Secondary") != null)
+							{
+							<img src="~/Content/Images/Tom Clancy's Rainbow Six Siege/Operators/Loadout/@(Model.Loadout.FirstOrDefault(l => l.Type == "Secondary").Name).jpg" />
+							}
+						</div>
+					</div> 
+				</div>
+				<div class="col-sm-3">
+					<div class="box box-default">
+						<div class="box-header with-border">
+							@if (Model.Loadout != null && Model.Loadout.Any() && Model.Loadout.FirstOrDefault(l => l.Type == "Gadget") != null)
+							{
+								<h3 class="box-title"><strong>Gadget: @Model.Loadout.FirstOrDefault(l => l.Type == "Gadget").Name</strong>
+								</h3>
+							}
+							else
+							{
+								<p>No "Gadget" known for this operator.</p>
+							}
+						</div><!-- /.box-header -->
+						<div class="box-body">
+							@if (Model.Loadout != null && Model.Loadout.Any() && Model.Loadout.FirstOrDefault(l => l.Type == "Gadget") != null)
+							{
+							<img src="~/Content/Images/Tom Clancy's Rainbow Six Siege/Operators/Loadout/@(Model.Loadout.FirstOrDefault(l => l.Type == "Gadget").Name).jpg" />
+
+							}
+						</div>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title text text-default">Select your operator!</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div>
+	</div>
+	<div class="box-body">
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" class="text text-@Functions.GetChallengeColor("Attack")" href="#attackTab">Attack</a></li>
+			<li><a data-toggle="tab" class="text text-@Functions.GetChallengeColor("Defend")" href="#defenderTab">Defend</a></li>
+		</ul>
+
+
+		<div class="tab-content" style="margin-top: 10px;">
+			<div id="attackTab" class="tab-pane fade in active">
+				@using (Html.BeginForm("RandomLoadout", "TomClancyRainbowSixSiege", FormMethod.Get, new { id = "form" }))
+				{
+					<select name="operatorName" id="attackoperators" class="image-picker masonry show-html">
+						@foreach (var op in attackList)
+						{
+							<option value="@op.Name" data-img-src="/Content/Images/Tom Clancy's Rainbow Six Siege/Operators/@(op.Name)_Badge.png" @if (Model != null && Model.Name == op.Name) { <text> selected="selected" </text>     }> @op.Name</option>
+						}
+					</select>
+					<button type="submit" class="btn btn-default" value="Submit">Randomize</button>
+				}
+			</div>
+			<div id="defenderTab" class="tab-pane fade">
+				@using (Html.BeginForm("RandomLoadout", "TomClancyRainbowSixSiege", FormMethod.Get, new { id = "form" }))
+				{
+					<select name="operatorName" id="defendoperators" class="image-picker masonry show-html">
+						@foreach (var op in defendList)
+						{
+							<option value="@op.Name" data-img-src="/Content/Images/Tom Clancy's Rainbow Six Siege/Operators/@(op.Name)_Badge.png" @if (Model != null && Model.Name == op.Name) { <text> selected="selected" </text>     }> @op.Name</option>
+						}
+					</select>
+					<button type="submit" class="btn btn-default" value="Submit">Randomize</button>
+				}
+			</div>
+		</div>
+
+	</div>
+</div>
+@section scripts
+{
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("select").imagepicker({ show_label: true }).show();
+			$("#defendoperators").hide();
+			$("#attackoperators").hide();
+		})
+	</script>
+}

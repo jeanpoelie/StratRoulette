@@ -1,0 +1,20 @@
+F:\Documenten\GitHub\DiscordFunBot\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+F:\Documenten\GitHub\DiscordFunBot\Business\bin\Debug\Business.dll
+F:\Documenten\GitHub\DiscordFunBot\Business\bin\Debug\Business.pdb
+F:\Documenten\GitHub\DiscordFunBot\Business\bin\Debug\MySql.Data.dll
+F:\Documenten\GitHub\DiscordFunBot\Business\obj\Debug\Business.dll
+F:\Documenten\GitHub\DiscordFunBot\Business\obj\Debug\Business.pdb
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\RouletteBusiness\bin\Debug\Business.dll.config
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\RouletteBusiness\bin\Debug\Business.dll
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\RouletteBusiness\bin\Debug\Business.pdb
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\RouletteBusiness\bin\Debug\MySql.Data.dll
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\RouletteBusiness\obj\Debug\Business.csprojResolveAssemblyReference.cache
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\RouletteBusiness\obj\Debug\Business.dll
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\RouletteBusiness\obj\Debug\Business.pdb
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\bin\Debug\Business.dll.config
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\bin\Debug\Business.dll
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\bin\Debug\Business.pdb
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\bin\Debug\MySql.Data.dll
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\obj\Debug\Business.dll
+F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\obj\Debug\Business.pdb

@@ -1,0 +1,56 @@
+﻿@using StratRoulette.Extensions
+@model StratRoulette.Models.ChallengeModel 
+@{
+	var showNewWindow = ViewData["NewWindow"] as string;
+}
+<div id="challengealerts"></div>
+<div class="panel panel-@Functions.GetChallengeColor(Model.Side)">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			@if (showNewWindow != "hide")
+			{
+				<a href="@Url.Action("ChallengeInformation", "CounterStrikeGlobalOffensive")/@Model.Id" target="_blank">#@Model.Id @Model.Title</a>
+			}
+			else
+			{
+				<text>#</text>@Model.Id @Model.Title
+			}
+
+			@for (var i = 0; i < Functions.GetDifficultyInt(Model.Difficulty); i++)
+			{
+				<text><span class="glyphicon glyphicon-star text text-danger" aria-hidden="true"></span></text>
+			}
+			<div class="pull-right">
+				@if (Model.KeyboardAndMouse == 1)
+				{
+					<i class="ion ion-mouse"></i>
+				}
+				@if (Model.Controller == 1)
+				{
+					<i class="ion ion-ios-game-controller-b"></i>
+				}
+				<span class="glyphicon glyphicon-thumbs-up"></span> @Model.Likes
+				<span class="glyphicon glyphicon-flag"></span> @Model.Reports
+			</div>
+		</h3>
+	</div>
+	<div class="panel-body">
+		@Model.Description
+		@if (!string.IsNullOrEmpty(Model.Credits))
+		{
+			<text>
+				<br/>
+				<p><i>Credits: @Model.Credits </i></p>
+			</text>
+		}
+	</div>
+</div>
+
+<p>
+	<button id="LikeButton" class="btn btn-success" type="button"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+	<button id="ReportButton" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-flag"></span></button>
+	@if (showNewWindow != "hide")
+	{
+		<a href="@Url.Action("ChallengeInformation", "CounterStrikeGlobalOffensive")/@Model.Id" class="btn btn-info" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a>
+	}
+</p>

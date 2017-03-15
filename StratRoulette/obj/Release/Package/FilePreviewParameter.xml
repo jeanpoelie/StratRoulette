@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="TestStratRoulette" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\Documenten\\Visual\ Studio\ 2015\\Projects\\DakpanGames\\StratRoulette\\StratRoulette\\StratRoulette\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^F:\\Documenten\\Visual\ Studio\ 2015\\Projects\\DakpanGames\\StratRoulette\\StratRoulette\\StratRoulette\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Database-Web.config Connection String" description="Database Connection String used in web.config by the application to access the database." value="Server=localhost;Database=stratroulette;User Id=stratRoulette;password=ditisgeheim;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Documenten\\Visual\ Studio\ 2015\\Projects\\DakpanGames\\StratRoulette\\StratRoulette\\StratRoulette\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Database']/@connectionString" />
+  </parameter>
+</parameters>

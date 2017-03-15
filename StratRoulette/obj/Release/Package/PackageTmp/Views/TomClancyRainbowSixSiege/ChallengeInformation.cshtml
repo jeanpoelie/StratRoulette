@@ -1,0 +1,174 @@
+﻿@using StratRoulette.Extensions
+@using StratRoulette.Models
+@model ChallengeModel
+@if (Model != null)
+{
+	ViewBag.Title = Model.Title;
+	var maps = ViewBag.Maps as List<MapModel>;
+	var gameModes = ViewBag.GameModes as List<GameModeModel>;
+
+	var lineChartModel = ViewBag.LineChartModel as LineChartModel;
+	var disqus = new DisqusModel();
+	var url = Request.Url.PathAndQuery;
+	if (Model != null)
+	{
+		disqus = new DisqusModel { Id = 0, Identifier = Model.Id.ToString(), WebpagePath = url };
+	}
+
+	@section widgets
+	{
+		@if (lineChartModel != null)
+		{
+			@Html.Partial("_ChallengesLineChart", lineChartModel)
+		}
+	}  
+
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">Challenge Information</h3>
+			<div class="box-tools pull-right">
+				<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div><!-- /.box-tools -->
+		</div><!-- /.box-header -->
+		<div class="box-body"> 
+			@Html.Partial("_Challenge", Model, new ViewDataDictionary { { "NewWindow", "hide" } }) 
+		</div><!-- /.box-body -->
+	</div>
+	<!-- /.box -->
+
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">Challenge Filters</h3>
+			<div class="box-tools pull-right">
+				<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div><!-- /.box-tools -->
+		</div><!-- /.box-header -->
+		<div class="box-body">
+			<p>Side(s): @Model.Side</p>
+			<p>
+				Game Mode(s):
+
+				<ul>
+					@foreach (var gameMode in gameModes)
+					{
+						<li>@gameMode.Name</li>
+					}
+				</ul>
+			</p>
+
+			<p>
+				Map(s):
+			</p>
+
+			<div class="row">
+				@foreach (var map in maps)
+				{
+					<div class="col-sm-3">
+						<div class="box box-default">
+							<div class="box-header with-border">
+								<h3 class="box-title">@map.Name</h3>
+							</div><!-- /.box-header -->
+							<div class="box-body">
+								<img src="~/Content/Images/Tom Clancy's Rainbow Six Siege/Maps/@(map.Name).jpg"/>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+
+			<p>
+				Difficulty:
+				@for (var i = 0; i < Functions.GetDifficultyInt(Model.Difficulty); i++)
+				{
+					<span class="glyphicon glyphicon-star text text-danger" aria-hidden="true"></span>
+				}
+			</p>
+
+			<p>
+				Pheripherals:
+				@if (Model.KeyboardAndMouse == 1)
+				{
+					<i class="ion ion-mouse"></i>
+				}
+
+				@if (Model.Controller == 1)
+				{
+					<i class="ion ion-ios-game-controller-b"></i>
+				}
+			</p>
+
+		</div><!-- /.box-body -->
+	</div>
+	<!-- /.box -->
+
+	@Html.Partial("_Disqus", disqus)
+
+	@section scripts
+	{
+		<script type="text/javascript">
+			$(document).ready(function() {
+				@if (lineChartModel != null && !lineChartModel.IsEmpty())
+				{<text>
+					var playsEachWeek = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeek)))');
+					var playsEachWeekLabel = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeekLabel)))');
+					var data = { // A labels array that can contain any sort of values
+								   labels: playsEachWeekLabel,
+								   // Our series array that contains series objects or in this case series data arrays
+								   series: [
+											   playsEachWeek
+											   ] };
+
+					// Create a new line chart object where as first parameter we pass in a selector
+					// that is resolving to our chart container element. The Second parameter
+					// is the actual data object.
+					new Chartist.Line('.ct-chart', data);
+				</text>}
+
+				@if (Model != null)
+				{<text>
+					$("#LikeButton").click(function() {
+						$.ajax({
+							url: '@Url.Action("AddFeedBack")',
+							data: { IP: "@HttpContext.Current.Request.UserHostAddress", challengeId: @Model.Id, liked: "true" },
+							success: function(response) {
+								$("#challengealerts").empty();
+								$("#challengealerts").append("<div class=\"alert alert-info\" role=\"alert\">" + response + "</div>");
+							}, error: function(xhr, status, errorThrown) {
+								$("#challengealerts").empty();
+								$("#challengealerts").append("<div class=\"alert alert-danger\" role=\"alert\">" + xhr.reponseText + "</div>");
+							}
+						});
+					});
+
+					$("#ReportButton").click(function() {
+						$.ajax({
+							url: '@Url.Action("AddFeedBack")',
+							data: { IP: "@HttpContext.Current.Request.UserHostAddress", challengeId: @Model.Id, reported: "true" },
+							success: function(response) {
+								$("#challengealerts").empty();
+								$("#challengealerts").append("<div class=\"alert alert-info\" role=\"alert\">" + response + "</div>");
+							}, error: function(xhr, status, errorThrown) {
+								$("#challengealerts").empty();
+								$("#challengealerts").append("<div class=\"alert alert-danger\" role=\"alert\">" + xhr.reponseText + "</div>");
+							}
+						});
+					});
+				</text>}
+			});
+		</script>
+	}
+}
+else
+{
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">Not Found</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<h1>This challenge does not exist.</h1>
+	</div><!-- /.box-body -->
+</div>
+}

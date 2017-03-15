@@ -1,0 +1,30 @@
+﻿@{
+	ViewBag.Title = "Strat Roulette Management Home";
+	Layout = "~/Views/Shared/_ManagementLayout.cshtml";
+}
+
+<nav class="navbar navbar-static-top" role="navigation">
+	<button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#main-navbar">
+		<span class="glyphicon glyphicon-menu-hamburger"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="main-navbar">
+		<ul class="nav navbar-nav">
+			<li>@Html.ActionLink("In Action", "InAction", "Management")</li>
+			<li>@Html.ActionLink("About", "About", "Management")</li>		
+		</ul>
+	</div>
+</nav>
+
+@*<img src="~/Content/Images/banner.jpg" class="img-responsive"/> <br/>*@
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">Welcome to Strat Roulette, here you can well... manage stuff.</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<p>Welcome to the management department.</p>
+	@Html.Action("")
+	</div><!-- /.box-body -->
+</div><!-- /.box -->

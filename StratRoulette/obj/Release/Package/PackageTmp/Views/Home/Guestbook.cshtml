@@ -1,0 +1,10 @@
+﻿@using StratRoulette.Models
+@{
+	ViewBag.Title = "Guestbook";
+	var url = Request.Url.PathAndQuery;
+	var disqus = new DisqusModel { Id = 0, Identifier = "guestbook", WebpagePath = url };
+}
+
+<h1>@ViewBag.Title</h1>
+
+@Html.Partial("_Disqus", disqus)

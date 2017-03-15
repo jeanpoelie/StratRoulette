@@ -1,0 +1,115 @@
+﻿@using StratRoulette.Extensions
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Strat Roulette</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="skin-purple sidebar-collapse">
+	<div class="wrapper main-bg">
+		<header class="main-header">
+			<a href="@Url.Action("Index", "Home")" class="logo"><img src="~/Content/Images/icon.png" class="img-responsive pull-left" style="height: 50px;"/> <b>Strat</b> Roulette</a>
+			<nav class="navbar navbar-static-top" role="navigation">
+				<button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#main-navbar">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="main-navbar">
+					<ul class="nav navbar-nav">
+						<li>@Html.ActionLink("Main Site", "Index", "Home")</li>
+						<li>@Html.ActionLink("Rainbow Six: Siege Challenges", "Challenges", "Management", new { GameName = "Tom Clancy's Rainbow Six: Siege" }, null)</li>
+						<li>@Html.ActionLink("Counter-Strike: Global Offensive Challenges", "Challenges", "Management", new { GameName = "Counter-Strike: Global Offensive" }, null)</li>
+					</ul>
+
+				</div>
+			</nav>
+		</header>
+
+		<div class="content-wrapper">
+			<div class="col-lg-9 col-sm-12">
+				<section class="content">
+					@if (ViewBag.SuccessMessage != null || ViewBag.InfoMessage != null || ViewBag.WarningMessage != null || ViewBag.DangerMessage != null)
+					{
+						<div class="box box-default">
+							<div class="box-header with-border">
+								<h3 class="box-title">Alerts</h3>
+								<div class="box-tools pull-right">
+									<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+								</div><!-- /.box-tools -->
+							</div><!-- /.box-header -->
+							<div class="box-body">
+								<div class="alerts">
+									@if (ViewBag.SuccessMessage != null)
+									{<div class="alert alert-success" role="alert">@ViewBag.SuccessMessage</div>}
+									@if (ViewBag.InfoMessage != null)
+									{<div class="alert alert-info" role="alert">@ViewBag.InfoMessage</div>}
+									@if (ViewBag.WarningMessage != null)
+									{<div class="alert alert-warning" role="alert">@ViewBag.WarningMessage</div>}
+									@if (ViewBag.DangerMessage != null)
+									{<div class="alert alert-danger" role="alert">@ViewBag.DangerMessage</div>}
+								</div>
+							</div><!-- /.box-body -->
+						</div><!-- /.box -->
+					}
+
+					@RenderBody()
+				</section><!-- /.content -->
+			</div>
+			<div class="col-lg-3 col-sm-12">
+				<section class="content">
+					@RenderSection("widgets", required: false)
+				</section>
+			</div>
+		</div><!-- /.content-wrapper -->
+	</div>
+
+
+	<footer class="main-footer">
+		<div class="pull-right hidden-xs">
+			<b>Version</b> @Functions.GetVersion()
+		</div>
+		&copy; @DateTime.Now.Year - Strat Roulette made by <a href="https://www.youtube.com/user/Dakpan94">Dakpan</a>
+		@*<a href="https://www.facebook.com/Dakpan94/" target="_blank" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+			<a href="https://github.com/jeanpoelie/StratRoulette-C-" target="_blank" class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
+			<a href="https://plus.google.com/u/0/104377807065706661255" target="_blank" class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
+			<a href="https://twitter.com/dakpan94" target="_blank" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>*@
+	</footer>
+	
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Scripts/image-picker")
+<script>
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments);
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-78238723-1', 'auto');
+	ga('send', 'pageview');
+
+	$('#dropdown_button_rainbowsix').click(function () {
+		$('#dropdown_area_rainbowsix').slideToggle(300, function () {
+		});
+		return false;
+	});
+
+	$('#dropdown_button_csgo').click(function () {
+		$('#dropdown_area_csgo').slideToggle(300, function () {
+		});
+		return false;
+	});
+</script>
+@RenderSection("scripts", required: false)
+</body>
+</html>

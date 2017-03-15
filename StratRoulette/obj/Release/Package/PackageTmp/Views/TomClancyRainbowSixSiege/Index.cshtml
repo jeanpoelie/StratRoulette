@@ -1,0 +1,73 @@
+﻿@using StratRoulette.Models
+@{
+	ViewBag.Title = "Tom Clancy's Rainbow Six: Siege";
+	var topPlayedChallenges = ViewBag.TopPlayedChallenges as List<StatisticModel>;
+	var topPlayDates = ViewBag.TopPlayDates as List<StatisticModel>;
+	var topLikeChallenges = ViewBag.TopLikeChallenges as List<StatisticModel>;
+	var lineChartModel = ViewBag.LineChartModel as LineChartModel;
+}
+
+@section widgets {
+	@Html.Partial("_ChallengesLineChart", lineChartModel)
+
+	@Html.Partial("_TopPlayedChallenges", topPlayedChallenges)
+
+	@Html.Partial("_TopLikedChallenges", topLikeChallenges)
+
+	@Html.Partial("_TopPlayDates", topPlayDates)
+}
+
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">Information</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<p class="lead">Tom Clancy's Rainbow Six Siege is a first-person shooter video game developed by Ubisoft Montreal and published by Ubisoft. Considered as a successor to the now cancelled Tom Clancy's Rainbow 6: Patriots, Siege puts heavy emphasis on environmental destruction and co-operation between players. Unlike previous entries in the series, the title has missions known as "situations" as well as an online mode.</p>
+
+		<div class="row">
+			<div class="col-sm-4">
+				<h1> Strat Roulette Discord</h1>
+				<iframe src="https://discordapp.com/widget?id=184285580668960768&theme=dark" width="350" height="500" allowtransparency="true"></iframe>
+			</div>
+			<div class="col-sm-4">
+				<h1> Siege Discord</h1>
+				<iframe src="https://discordapp.com/widget?id=118304101783044099&theme=dark" width="350" height="500" allowtransparency="true"></iframe>
+			</div>
+		</div>
+	</div><!-- /.box-body -->
+</div><!-- /.box -->	 
+
+@section scripts {
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//Statistics: Line chart
+			@*var playsEachWeek = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeek)))');
+			var playsEachWeekLabel = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeekLabel)))');
+			var data = {
+				// A labels array that can contain any sort of values
+				labels: playsEachWeekLabel,
+				// Our series array that contains series objects or in this case series data arrays
+				series: [
+					playsEachWeek
+				]
+			};
+
+			// Create a new line chart object where as first parameter we pass in a selector
+			// that is resolving to our chart container element. The Second parameter
+			// is the actual data object.
+			new Chartist.Line('#challengeLineChart', data);
+
+			//Statistics: Top played challenges, top liked challenges & top play dates.
+			$("#topPlayedTable, #topPlayedChallengeTable, #topPlayDatesTable").DataTable({
+				paging: false,
+				searching: false,
+				ordering: false
+			});*@
+		});
+	</script>
+}
+
+

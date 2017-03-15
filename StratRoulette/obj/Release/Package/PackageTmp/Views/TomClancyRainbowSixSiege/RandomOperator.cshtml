@@ -1,0 +1,122 @@
+﻿@using StratRoulette.Extensions
+@using StratRoulette.Models
+@model List<string>
+@{
+	ViewBag.Title = "Random Operator";
+	var includeRecruit = ViewBag.IncludeRecruit as bool?;
+	var defendList = ViewBag.DefendList as IList<OperatorModel>;
+	var attackList = ViewBag.AttackList as IList<OperatorModel>;
+	var firstTime = ViewBag.FirstTime ?? true;
+	var maxPlayers = 10;
+}
+
+
+@using (Html.BeginForm("RandomOperator", "TomClancyRainbowSixSiege", FormMethod.Post, new { id = "form" }))
+{
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">Filters</h3>
+			<div class="box-tools pull-right">
+		<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+	</div><!-- /.box-tools -->
+		</div><!-- /.box-header -->
+		<div class="box-body">
+			<input type="hidden" name="firstTime" value="@firstTime.ToString()">
+			<p>
+				Include recruits:
+				<input type="radio" name="includeRecruit" value="true" @if (includeRecruit == true) { <text> checked</text>}> Yes
+				<input type="radio" name="includeRecruit" value="false" @if (includeRecruit == false) { <text> checked</text>}> No
+			</p>
+		</div><!-- /.box-body -->
+	</div><!-- /.box -->
+
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">Operators</h3>
+			<div class="box-tools pull-right">
+		<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+	</div><!-- /.box-tools -->
+		</div><!-- /.box-header -->
+		<div class="box-body">
+			<div class="row">
+				@for (var i = 0; i < maxPlayers; i++)
+				{
+					var halve = maxPlayers / 2;
+
+					if (i == 0)
+					{
+		@:<div class="col-sm-6">
+			@:<div class="panel panel-@Functions.GetChallengeColor("Defend")">
+				@:<div class="panel-heading">
+					@:<h3 class="panel-title text text-@Functions.GetChallengeColor("Defend")">Defend</h3>
+				@:</div>
+				@:<div class="panel-body">
+			}
+
+					if (i == halve)
+					{
+		@:</div>
+		@:</div>
+	@:</div>
+	@:<div class="col-sm-6">
+		@:<div class="panel panel-@Functions.GetChallengeColor("Attack")">
+			@:<div class="panel-heading">
+				@:<h3 class="panel-title text text-@Functions.GetChallengeColor("Attack")">Attack</h3>
+			@:</div>
+			@:<div class="panel-body">
+			}
+
+		<div class="row">
+			@if (defendList != null && attackList != null)
+			{
+				var operatorName = string.Empty;
+				if (i < halve)
+				{
+					operatorName = defendList.First().Name;
+					defendList.Remove(defendList.First());
+				}
+				else
+				{
+					operatorName = attackList.First().Name;
+					attackList.Remove(attackList.First());
+				}
+				operatorName = operatorName.Replace("ATK_Recruit-", "");
+				operatorName = operatorName.Replace("DEF_Recruit-", "");
+				<strong>@operatorName</strong>
+				<img src="~/Content/Images/Tom Clancy's Rainbow Six Siege/Operators/@(operatorName)_Badge.png" onerror="this.onerror=null;this.src='../../Content/Images/Tom Clancy\'s Rainbow Six Siege/Operators/Recruit_Badge.png';" class="img-reponsive pull-left" style="bottom: 30px;" max-height="80" width="80" />
+
+
+			}
+			<div class="OperatorInputField">
+				@Html.Label("Player " + (i + 1) + ":", new { @class = "col-sm-2", style = "top: 5px" })
+				<input type="text" name="playerList[@i]" value="@Model[i]" class="form-control col-sm-10" />
+			</div>
+		</div>
+
+
+					if (i == (maxPlayers - 1))
+					{
+						@: </div>
+						@: </div>
+					@: </div>
+					}
+				}
+			</div> 
+
+			<button type="submit" class="btn btn-default bg-purple" value="Submit">Randomize</button>
+		</div><!-- /.box-body -->
+	</div><!-- /.box -->
+}
+
+@section scripts {
+	<script type="text/javascript">
+	@if (defendList != null && attackList != null)
+	{
+	<text>
+		$(document).ready(function () {
+			$('.OperatorInputField').attr("style", " position: relative; top: 22px;")
+		});
+		</text>
+	}
+	</script>
+}

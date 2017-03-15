@@ -1,0 +1,178 @@
+﻿@using StratRoulette.Extensions
+@using StratRoulette.Models
+@model ChallengeModel
+@{
+	ViewBag.Title = "Random Challenge";
+	var difficulty = ViewBag.Difficulty ?? string.Empty;
+	var peripheral = ViewBag.Peripheral ?? string.Empty;
+	var selectedMapIds = ViewBag.SelectedMapIds as List<int>;
+	var selectedGameModeId = ViewBag.SelectedGameModeId as int?;
+	var gameModes = ViewBag.GameModes as List<GameModeModel>;
+	var maps = ViewBag.Maps as List<MapModel>;
+
+	var lineChartModel = ViewBag.LineChartModel as LineChartModel;
+	var disqus = new DisqusModel();
+	var url = Request.Url.PathAndQuery;
+	if(Model != null)
+	{
+		disqus = new DisqusModel { Id = 0, Identifier = Model.Id.ToString(), WebpagePath = url };
+	}
+}
+
+@section widgets {
+	@Html.Partial("_ChallengesLineChart", lineChartModel) 
+
+	@Html.Partial("_Disqus", disqus)
+}
+
+@using (Html.BeginForm("RandomChallenge", "CounterStrikeGlobalOffensive", FormMethod.Post, new { id = "form" }))
+{
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">Challenge</h3>
+			<div class="box-tools pull-right">
+				<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div><!-- /.box-tools -->
+		</div><!-- /.box-header -->
+		<div class="box-body">
+			@if (Model != null && Model.Id != 0)
+			{
+				@Html.Partial("_Challenge", Model)
+			}
+			else
+			{
+				<h1 class="text text-danger">
+					<strong>There are no challenges for this filter.</strong>
+				</h1>
+			}
+			<p><i>You can discuss your thoughts about this challenge in the discussion box in the sidebar (on mobile on the bottom)!</i></p>
+		</div>
+	</div>
+
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">Filters</h3>
+			<div class="box-tools pull-right">
+				<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div><!-- /.box-tools -->
+		</div><!-- /.box-header -->
+		<div class="box-body">
+			<p>
+				Difficulty:
+				<input type="radio" name="difficulty" value="All" @if (difficulty == "All") { <text> checked</text>}> All
+				<input type="radio" name="difficulty" value="Easy" @if (difficulty == "Easy") { <text> checked</text>}> Easy
+				<input type="radio" name="difficulty" value="Medium" @if (difficulty == "Medium") { <text> checked</text>}> Medium
+				<input type="radio" name="difficulty" value="Hard" @if (difficulty == "Hard") { <text> checked</text>}> Hard
+			</p>
+			<p>
+				Peripheral:
+				<input type="radio" name="peripheral" value="Both" @if (peripheral == "Both") { <text> checked</text>}> Both
+				<input type="radio" name="peripheral" value="KeyboardMouse" @if (peripheral == "KeyboardMouse") { <text> checked</text>}> Keyboard And Mouse
+				<input type="radio" name="peripheral" value="Controller" @if (peripheral == "Controller") { <text> checked</text>}> Controller
+			</p>
+			<p>
+				Game Modes:
+
+				<select name="gameModeId" class="form-control">
+					<option value="0">All</option>
+					@foreach (var gameMode in gameModes)
+					{
+						<option name="gameModeId" value="@gameMode.Id" @if (selectedGameModeId == gameMode.Id) { <text> selected="selected" </text>     }>@gameMode.Name</option>
+					}
+				</select>
+			</p>
+			<div class="box box-default collapsed-box">
+				<div class="box-header with-border">
+					<h3 class="box-title">Maps (Expand to select maps):</h3>
+					<div class="box-tools pull-right">
+						<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+					</div><!-- /.box-tools -->
+				</div><!-- /.box-header -->
+				<div class="box-body">
+					<select name="mapIds[]" id="maps" class="image-picker masonry show-html " multiple="multiple">
+						@foreach (var map in maps)
+						{
+							<option value="@map.Id" data-img-src="/Content/Images/Counter Strike Global Offensive/Maps/@(map.Name).jpg" @if (selectedMapIds.Contains(map.Id)) { <text> selected="selected" </text>       }> @map.Name</option>
+						}
+					</select>
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-@Functions.GetChallengeColor("Both")" value="Submit">Both</button>
+			<button id="AttackButton" class="btn btn-@Functions.GetChallengeColor("Attack")" type="button">Attackers Challenges!</button>
+			<button id="DefendButton" class="btn btn-@Functions.GetChallengeColor("Defend")" type="button">Defenders Challenges!</button>
+		</div>
+	</div>
+}
+
+@Html.Partial("_RulesAndLegend")
+
+@section scripts {
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//Statistics: Line chart
+			@if (lineChartModel != null && !lineChartModel.IsEmpty())
+			{<text>
+			var playsEachWeek = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeek)))');
+			var playsEachWeekLabel = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeekLabel)))');
+			var data = { // A labels array that can contain any sort of values
+				labels: playsEachWeekLabel,
+				// Our series array that contains series objects or in this case series data arrays
+				series: [
+							playsEachWeek
+				] };
+
+			// Create a new line chart object where as first parameter we pass in a selector
+			// that is resolving to our chart container element. The Second parameter
+			// is the actual data object.
+			new Chartist.Line('#challengeLineChart', data);
+			</text>}
+
+			$("select").imagepicker({ show_label: true }).show();
+			$("#maps").hide();
+
+			@if (Model != null)
+			{
+				<text>
+			$("#LikeButton").click(function() {
+				$.ajax({
+					url: '@Url.Action("AddFeedBack")',
+					data: { IP: "@HttpContext.Current.Request.UserHostAddress", challengeId: @Model.Id, liked: "true" },
+					success: function(response) {
+						$("#challengealerts").empty();
+						$("#challengealerts").append("<div class=\"alert alert-info\" role=\"alert\">" + response + "</div>");
+					}, error: function(xhr, status, errorThrown) {
+						$("#challengealerts").empty();
+						$("#challengealerts").append("<div class=\"alert alert-danger\" role=\"alert\">" + xhr.reponseText + "</div>");
+					}
+				});
+			});
+
+				$("#ReportButton").click(function() {
+					$.ajax({
+						url: '@Url.Action("AddFeedBack")',
+						data: { IP: "@HttpContext.Current.Request.UserHostAddress", challengeId: @Model.Id, reported: "true" },
+						success: function(response) {
+							$("#challengealerts").empty();
+							$("#challengealerts").append("<div class=\"alert alert-info\" role=\"alert\">" + response + "</div>");
+						}, error: function(xhr, status, errorThrown) {
+							$("#challengealerts").empty();
+							$("#challengealerts").append("<div class=\"alert alert-danger\" role=\"alert\">" + xhr.reponseText + "</div>");
+						}
+					});
+				});	   
+				</text>
+				}
+
+				$("#AttackButton").click(function() {
+					$("#form").append("<input type=\"hidden\" value=\"Attack\" name=\"Side\" />");
+					$("#form").submit();
+				});
+
+				$("#DefendButton").click(function() {
+					$("#form").append("<input type=\"hidden\" value=\"Defend\" name=\"Side\" />");
+					$("#form").submit();
+				});
+			});
+		</script>
+}
