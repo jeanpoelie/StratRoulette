@@ -1,0 +1,23 @@
+﻿@{
+	ViewBag.Title = "About";
+}
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">@ViewBag.Title</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<p>
+			This website is made by enthusiastic programmers who have a love for having fun in games!
+		</p>
+		<p>
+			Everything you see here is made in their spare time and we appreciate every suggestion you send to us!
+		</p>
+		<p>
+			We added a github repository so you can help make this a multi-gaming strat roulette platform! <br />
+			Please go to the @(Html.ActionLink("Contribute Page", "Contribute", "Home")) for more info.
+		</p>
+	</div>
+</div>

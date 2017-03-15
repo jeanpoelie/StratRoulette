@@ -1,0 +1,20 @@
+﻿@model StratRoulette.Models.LineChartModel
+
+@if (Model != null && !Model.IsEmpty())
+{
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">Challenge Statistics</h3>
+			<div class="box-tools pull-right">
+				<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div><!-- /.box-tools -->
+		</div><!-- /.box-header -->
+		<div class="box-body">
+			<p>
+				<i>@Model.HeaderText</i>
+			</p>
+			<div id="challengeLineChart" class="ct-chart ct-perfect-fourth"></div>
+			<p>@Model.FooterText</p>
+		</div><!-- /.box-body -->
+	</div><!-- /.box -->
+}

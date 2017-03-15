@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{48F3B8D1-32F9-4777-8D67-D091E031705B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StratRoulette</RootNamespace>
+    <AssemblyName>StratRoulette</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.1.0.0\lib\net451\Microsoft.AspNetCore.Authentication.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.1.0.0\lib\net451\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.1.0.0\lib\net451\Microsoft.AspNetCore.DataProtection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.DataProtection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.1.0.0\lib\net451\Microsoft.AspNetCore.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.1.0.0\lib\net451\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.1.0.0\lib\net451\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.1.0.0\lib\net451\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.1.0.0\lib\net451\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.0.0\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.1.0.0\lib\net451\Microsoft.Extensions.ObjectPool.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Options.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.WebEncoders.1.0.0\lib\netstandard1.0\Microsoft.Extensions.WebEncoders.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.1.0.0\lib\netstandard1.1\Microsoft.Net.Http.Headers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.0.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.0.0\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AutoMappings.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CounterStrikeGlobalOffensiveController.cs" />
+    <Compile Include="Controllers\TomClancyRainbowSixSiegeController.cs" />
+    <Compile Include="Extensions\DataRowExtensionMethods.cs" />
+    <Compile Include="Extensions\DataTableExtension.cs" />
+    <Compile Include="Extensions\Functions.cs" />
+    <Compile Include="Extensions\HiddenForExtensions.cs" />
+    <Compile Include="Extensions\HtmlPrefixScopeExtensions.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChallengeModel.cs" />
+    <Compile Include="Models\GameModeModel.cs" />
+    <Compile Include="Models\MapModel.cs" />
+    <Compile Include="Models\ManagementAccountModel.cs" />
+    <Compile Include="Models\LineChartModel.cs" />
+    <Compile Include="Models\StatisticModel.cs" />
+    <Compile Include="Models\OperatorLoadoutModel.cs" />
+    <Compile Include="Models\OperatorModel.cs" />
+    <Compile Include="Models\DisqusModel.cs" />
+    <Compile Include="Models\VideoModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\AdminLTE.css" />
+    <Content Include="Content\css\AdminLTE.min.css" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\chartist.css" />
+    <Content Include="Content\css\chartist.min.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\image-picker.css" />
+    <Content Include="Content\css\ionicons.css" />
+    <Content Include="Content\css\ionicons.min.css" />
+    <Content Include="Content\css\site.css" />
+    <Content Include="Content\css\skins\skin-black.css" />
+    <Content Include="Content\css\skins\skin-black.min.css" />
+    <Content Include="Content\css\skins\skin-blue.css" />
+    <Content Include="Content\css\skins\skin-blue.min.css" />
+    <Content Include="Content\css\skins\skin-green.css" />
+    <Content Include="Content\css\skins\skin-green.min.css" />
+    <Content Include="Content\css\skins\skin-purple.css" />
+    <Content Include="Content\css\skins\skin-purple.min.css" />
+    <Content Include="Content\css\skins\skin-red.css" />
+    <Content Include="Content\css\skins\skin-red.min.css" />
+    <Content Include="Content\css\skins\skin-yellow.css" />
+    <Content Include="Content\css\skins\skin-yellow.min.css" />
+    <Content Include="Content\css\skins\_all-skins.css" />
+    <Content Include="Content\css\skins\_all-skins.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.semanticui.min.css" />
+    <Content Include="Content\css\dataTables.bootstrap.css" />
+    <Content Include="Content\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\css\dataTables.foundation.css" />
+    <Content Include="Content\css\dataTables.foundation.min.css" />
+    <Content Include="Content\css\dataTables.jqueryui.css" />
+    <Content Include="Content\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\css\dataTables.material.css" />
+    <Content Include="Content\css\dataTables.material.min.css" />
+    <Content Include="Content\css\dataTables.semanticui.css" />
+    <Content Include="Content\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\css\dataTables.uikit.css" />
+    <Content Include="Content\css\dataTables.uikit.min.css" />
+    <Content Include="Content\css\jquery.dataTables.css" />
+    <Content Include="Content\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\Images\banner.jpg" />
+    <Content Include="Content\Images\banner_neon.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Assault.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Aztec.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Baggage.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Bank.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Cache.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Cobblestone.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Dust 2.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Dust.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Inferno.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Italy.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Lake.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Militia.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Mirage.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Monastery.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Nuke.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Office.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Overpass.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Safehouse.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Shoots.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Shortdust.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Shorttrain.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\St. Marc.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Sugarcane.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Train.jpg" />
+    <Content Include="Content\Images\Counter Strike Global Offensive\Maps\Vertigo.jpg" />
+    <Content Include="Content\Images\icon.png" />
+    <Content Include="Content\Images\favicon.ico" />
+    <Content Include="Content\Images\sort_asc.png" />
+    <Content Include="Content\Images\sort_asc_disabled.png" />
+    <Content Include="Content\Images\sort_both.png" />
+    <Content Include="Content\Images\sort_desc.png" />
+    <Content Include="Content\Images\sort_desc_disabled.png" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\ionicons.svg" />
+    <Content Include="Content\Images\discord_logo.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\background.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Bank.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Bartlett University.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Border.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Chalet.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Clubhouse.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Coastline.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Consulate.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Favela.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Hereford Base.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\House.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Kafe Dostoyevsky.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Kanal.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Oregon.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Presidential Plane.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Skyscraper.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Maps\Yacht.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Ash_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Ash_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Bandit_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Bandit_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Blackbeard_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Blackbeard_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Blitz_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Blitz_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Buck_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Buck_Cover.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Capitão_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Castle_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Castle_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Caveira_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Doc_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Doc_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Echo_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Echo_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Frost_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Frost_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Fuze_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Fuze_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Glaz_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Glaz_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Hibana_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Hibana_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\IQ_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\IQ_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Jackal_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Jäger_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Jäger_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Kapkan_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Kapkan_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\416-C Carbine.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\417.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\5.7 USG.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\552 Commando.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\556XI.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\6P41.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\9MM C1.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\9x19VSN.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\AK-12.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\AR33.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\AUG A2.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Ballistic Shield.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Barbed Wire.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Bearing 9.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Breach Charge.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\C7E.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\C8-SFW.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\CAMRS.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Claymore.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\D-50.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Deployable Shield.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Extendable Shield.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\F2.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Flash Shield.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\FMG-9.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Frag Grenade.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\G36C.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\G8A1.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\GSH-18.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\ITA12L.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\ITA12S.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\L85A2.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\LFP586.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\M-45 Meusoc.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\M1014.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\M12.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\M249.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\M590A1.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\M870.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\MK1 9MM.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\MK17 CQB.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\MP5.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\MP5K.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\MP5SD.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\MP7.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\MPX.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Nitro Cell.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\OTS-03.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\P12.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\P226 MK 25.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\P229.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\P9.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\P90.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\PARA-308.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\PDW9.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\PMM.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\PRB92.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\R4-C.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\SASG-12.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\SG-CQB.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\SMG-11.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Smoke Grenade.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\SPAS-12.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\SPAS-15.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\SR-25.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Stun Grenade.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Super90.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\SuperNova.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Type-89.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\UMP45.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\USP 40.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Loadout\Vector 45 ACP.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Mira_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Montagne_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Montagne_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Mute_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Mute_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Pulse_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Pulse_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Recruit_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Recruit_FBI_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Recruit_GIGN_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Recruit_GSG9_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Recruit_SAS_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Recruit_SPETSNAZ_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Rook_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Rook_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Sledge_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Sledge_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Smoke_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Smoke_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Tachanka_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Tachanka_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Thatcher_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Thatcher_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Thermite_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Thermite_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Twitch_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Twitch_Cover.jpg" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Valkyrie_Badge.png" />
+    <Content Include="Content\Images\Tom Clancy%27s Rainbow Six Siege\Operators\Valkyrie_Cover.jpg" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\app.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\css\bootstrap-theme.css.map" />
+    <Content Include="Content\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\ionicons.eot" />
+    <Content Include="Content\fonts\ionicons.ttf" />
+    <Content Include="Content\fonts\ionicons.woff" />
+    <Content Include="Content\css\chartist.css.map" />
+    <Content Include="Scripts\chartist.min.js.map" />
+    <Content Include="Content\css\scss\chartist.scss" />
+    <Content Include="Content\css\scss\settings\_chartist-settings.scss" />
+    <Content Include="Scripts\chartist.js" />
+    <Content Include="Scripts\chartist.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.bootstrap.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.bootstrap4.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.foundation.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.foundation.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.jqueryui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.semanticui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.semanticui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.bootstrap.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.bootstrap4.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.colVis.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.colVis.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.flash.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.flash.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.foundation.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.foundation.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.html5.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.html5.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.jqueryui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.print.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.print.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.semanticui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.semanticui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\dataTables.buttons.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\dataTables.buttons.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\swf\flashExport.swf" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.bootstrap.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.bootstrap4.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.foundation.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.foundation.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.jqueryui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.semanticui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.semanticui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\RowReorder\js\dataTables.rowReorder.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\RowReorder\js\dataTables.rowReorder.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Select\js\dataTables.select.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Select\js\dataTables.select.min.js" />
+    <Content Include="Scripts\dataTables.bootstrap.js" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\dataTables.foundation.js" />
+    <Content Include="Scripts\dataTables.foundation.min.js" />
+    <Content Include="Scripts\dataTables.jqueryui.js" />
+    <Content Include="Scripts\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\dataTables.material.js" />
+    <Content Include="Scripts\dataTables.material.min.js" />
+    <Content Include="Scripts\dataTables.semanticui.js" />
+    <Content Include="Scripts\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\dataTables.uikit.js" />
+    <Content Include="Scripts\dataTables.uikit.min.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\image-picker.js" />
+    <Content Include="Scripts\image-picker.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Select\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Scroller\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\RowReorder\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\KeyTable\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedHeader\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedColumns\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\ColReorder\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\Readme.md" />
+    <Content Include="Content\Images\Sorting icons.psd" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\semanticui.scss" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\mixins.scss" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\common.scss" />
+    <Content Include="Content\fonts\Franchise-Bold.ttf" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
+    <None Include="Properties\PublishProfiles\Test.pubxml" />
+    <None Include="Scripts\jquery-1.12.3.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.3.js" />
+    <Content Include="Scripts\jquery-1.12.3.min.js" />
+    <Content Include="Scripts\jquery-1.12.3.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="version.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Contribute.cshtml" />
+    <Content Include="Views\Home\InAction.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_Video.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\TomClancyRainbowSixSiege\ChallengeList.cshtml" />
+    <Content Include="Views\TomClancyRainbowSixSiege\Index.cshtml" />
+    <Content Include="Views\TomClancyRainbowSixSiege\RandomChallenge.cshtml" />
+    <Content Include="Views\TomClancyRainbowSixSiege\RandomLoadout.cshtml" />
+    <Content Include="Views\TomClancyRainbowSixSiege\RandomOperator.cshtml" />
+    <Content Include="Views\TomClancyRainbowSixSiege\_Challenge.cshtml" />
+    <Content Include="Views\TomClancyRainbowSixSiege\_RulesAndLegend.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\TomClancyRainbowSixSiege\ChallengeInformation.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\Guestbook.cshtml" />
+    <Content Include="Views\Shared\_Disqus.cshtml" />
+    <Content Include="Views\Shared\_ChallengesLineChart.cshtml" />
+    <Content Include="Views\Shared\_TopPlayedChallenges.cshtml" />
+    <Content Include="Views\Shared\_TopLikedChallenges.cshtml" />
+    <Content Include="Views\Shared\_TopPlayDates.cshtml" />
+    <Content Include="Views\CounterStrikeGlobalOffensive\_Challenge.cshtml" />
+    <Content Include="Views\CounterStrikeGlobalOffensive\_RulesAndLegend.cshtml" />
+    <Content Include="Views\CounterStrikeGlobalOffensive\ChallengeInformation.cshtml" />
+    <Content Include="Views\CounterStrikeGlobalOffensive\ChallengeList.cshtml" />
+    <Content Include="Views\CounterStrikeGlobalOffensive\Index.cshtml" />
+    <Content Include="Views\CounterStrikeGlobalOffensive\RandomChallenge.cshtml" />
+    <Content Include="Views\Management\Index.cshtml" />
+    <Content Include="Views\Management\Login.cshtml" />
+    <Content Include="Views\Shared\_ManagementLayout.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Error\UnHandled.cshtml" />
+    <Content Include="Views\Error\Maintenance.cshtml" />
+    <Content Include="Views\Management\Challenges.cshtml" />
+    <Content Include="Views\Management\Challenge.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\DataTables-1.10.12\media\images\" />
+    <Folder Include="Scripts\DataTables-1.10.12\media\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{209b7687-b521-4ae3-bf8c-98d421bef99c}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Content\Images\favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62893</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62893/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

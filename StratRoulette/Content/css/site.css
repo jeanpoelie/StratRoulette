@@ -1,0 +1,70 @@
+﻿body {
+	padding-bottom: 0 !important;
+}
+
+h1 {	 
+	color: #605CA8 !important;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.main-header {
+	max-height: 400px !important;
+}
+
+.panel-default {
+  border-color: #605CA8 !important;
+}
+.panel-default > .panel-heading {
+  color: white !important;
+  background-color: #605CA8 !important;
+  border-color: #605CA8 !important;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ddd;
+}
+.panel-default > .panel-heading .badge {
+  color: #f5f5f5;
+  background-color: #605CA8;
+}
+.panel-default > .panel-footer + .panel-collapse > .panel-body {
+	border-bottom-color: #ddd;
+}
+.text-default {
+	color: #605CA8;
+}
+
+.box-default {
+	border-color: #605CA8 !important;
+}
+
+.jumbotron {
+	background-color: rgba(229, 226, 248, 1);
+}
+
+#dropdown_area {
+	position:absolute;
+	z-index:4;
+	border-top:3px solid #428bca;
+	border-bottom:3px solid #428bca;
+	background-color: #222222;
+	padding: 20px;
+	color:white;
+	text-shadow: none;
+	box-shadow: inset 0px -1px 1px black;
+	width:100%;
+}
+
+.btn-bg {
+	border: none !important;
+}
+
+.main-bg {
+	background-color: #ecf0f5 !important;
+	background: #ecf0f5 !important;
+}

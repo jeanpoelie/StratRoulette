@@ -1,0 +1,33 @@
+﻿@using StratRoulette.Models
+@model VideoModel
+<div class="box box-@GetVideoColor(Model.VideoType)">
+	<div class="box-header with-border">
+		<h3 class="box-title">@Model.Title</h3>
+		<div class="box-tools pull-right">
+				<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<div class="embed-responsive embed-responsive-16by9">
+		<iframe class="embed-responsive-item" src="@Model.Url"></iframe>
+	</div>
+	<p><i>Post Date: @Model.Date.ToString("d")</i></p>
+	</div>
+</div>
+
+@functions
+{
+	private string GetVideoColor(string videoType)
+	{
+		var type = (VideoType)Enum.Parse(typeof(VideoType), videoType, true);
+		switch (type)
+		{
+		case VideoType.Youtube:
+			return "danger";
+		case VideoType.Twitch:
+			return "default";
+		default:
+			return "default";
+		}
+	}
+}

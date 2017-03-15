@@ -1,0 +1,70 @@
+﻿@using StratRoulette.Models
+@model List<ChallengeModel>
+@{
+	ViewBag.Title = "Challenge List";
+
+	var topPlayedChallenges = ViewBag.TopPlayedChallenges as List<StatisticModel>;
+	var topPlayDates = ViewBag.TopPlayDates as List<StatisticModel>;
+	var topLikeChallenges = ViewBag.TopLikeChallenges as List<StatisticModel>; 
+	var lineChartModel = ViewBag.LineChartModel as LineChartModel;
+}
+
+@section widgets {
+	@Html.Partial("_ChallengesLineChart", lineChartModel)
+
+	@Html.Partial("_TopPlayedChallenges", topPlayedChallenges)
+
+	@Html.Partial("_TopLikedChallenges", topLikeChallenges)
+
+	@Html.Partial("_TopPlayDates", topPlayDates)  
+}
+
+<h1>Total Challenges: @Model.Count</h1>
+
+@Html.Partial("_RulesAndLegend")
+
+
+@foreach (var challenge in Model)
+{
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title"></h3>
+			<div class="box-tools pull-right">
+				<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div><!-- /.box-tools -->
+		</div><!-- /.box-header -->
+		<div class="box-body">
+			@Html.Partial("_Challenge", challenge)
+		</div><!-- /.box-body -->
+	</div><!-- /.box -->
+}
+
+@section scripts {
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//Statistics: Line chart
+			var playsEachWeek = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeek)))');
+			var playsEachWeekLabel = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeekLabel)))');
+			var data = {
+				// A labels array that can contain any sort of values
+				labels: playsEachWeekLabel,
+				// Our series array that contains series objects or in this case series data arrays
+				series: [
+					playsEachWeek
+				]
+			};
+
+			// Create a new line chart object where as first parameter we pass in a selector
+			// that is resolving to our chart container element. The Second parameter
+			// is the actual data object.
+			new Chartist.Line('#challengeLineChart', data);
+
+			//Statistics: Top played challenges, top liked challenges & top play dates.
+			$("#topPlayedTable, #topPlayedChallengeTable, #topPlayDatesTable").DataTable({
+				paging: false,
+				searching: false,
+				ordering: false
+			});
+		});
+	</script>
+}

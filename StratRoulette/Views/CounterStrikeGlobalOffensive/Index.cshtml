@@ -1,0 +1,69 @@
+﻿@using StratRoulette.Models
+@{
+	ViewBag.Title = "Counter-Strike: Global Offensive";
+	var topPlayedChallenges = ViewBag.TopPlayedChallenges as List<StatisticModel>;
+	var topPlayDates = ViewBag.TopPlayDates as List<StatisticModel>;
+	var topLikeChallenges = ViewBag.TopLikeChallenges as List<StatisticModel>;
+	var lineChartModel = ViewBag.LineChartModel as LineChartModel; ;
+}
+
+@section widgets {
+	@Html.Partial("_ChallengesLineChart", lineChartModel)
+
+	@Html.Partial("_TopPlayedChallenges", topPlayedChallenges)
+
+	@Html.Partial("_TopLikedChallenges", topLikeChallenges)
+
+	@Html.Partial("_TopPlayDates", topPlayDates)
+}
+
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">Information</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<p class="lead"><strong>Counter-Strike: Global Offensive (CS:GO)</strong> is a first-person shooter video game which is a part of the Counter-Strike series. It was announced to the public on August 12, 2011, and is developed by Valve Corporation and their partner, Hidden Path Entertainment. The game was later released on August 21, 2012 for the Playstation 3, Xbox 360, Microsoft Windows, and OS X and later Linux as a downloadable title.</p>
+
+		<div class="row">
+			<div class="col-sm-4">
+				<h1> Strat Roulette Discord</h1>
+				<iframe src="https://discordapp.com/widget?id=184285580668960768&theme=dark" width="350" height="500" allowtransparency="true"></iframe>
+			</div>
+		</div>
+	</div><!-- /.box-body -->
+</div><!-- /.box -->	 
+
+@section scripts {
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//Statistics: Line chart
+			var playsEachWeek = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeek)))');
+			var playsEachWeekLabel = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeekLabel)))');
+			var data = {
+				// A labels array that can contain any sort of values
+				labels: playsEachWeekLabel,
+				// Our series array that contains series objects or in this case series data arrays
+				series: [
+					playsEachWeek
+				]
+			};
+
+			// Create a new line chart object where as first parameter we pass in a selector
+			// that is resolving to our chart container element. The Second parameter
+			// is the actual data object.
+			new Chartist.Line('#challengeLineChart', data);
+
+			//Statistics: Top played challenges, top liked challenges & top play dates.
+			$("#topPlayedTable, #topPlayedChallengeTable, #topPlayDatesTable").DataTable({
+				paging: false,
+				searching: false,
+				ordering: false
+			});
+		});
+	</script>
+}
+
+

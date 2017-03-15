@@ -1,0 +1,39 @@
+﻿@model List<StratRoulette.Models.VideoModel>
+@{
+    ViewBag.Title = "Strat Roulette In Action";
+}
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">In Action</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<p>
+			Here we will be promoting video's that used this Strat Roulette for their video content!
+		</p>
+		<p>
+			<strong>How can your video be in this list?</strong><br />
+			<ul>
+				<li>Make a cool/funny video.</li>
+				<li>
+					Upload it to Youtube/Twitch or some other video sharing website.<br />
+					<a href="https://support.google.com/youtube/answer/57741?hl=en">Youtube instructions</a> <br />
+					For Twitch: Click Share and send the url from the iframe source to us. This should be something like "player.twitch.tv/?video=[SomeID]".
+				</li>
+				<li>Add credits to this website in your description.</li>
+				<li>Send an email to <a href="mailto:stratgameroulette@gmail.com">Strat Roulette</a> with the url of the video + a title and we will consider adding it to this list!</li>
+			</ul>
+		</p>
+		<p>
+			If you have other suggestions for video references/sharing you can send them to <a href="mailto:stratgameroulette@gmail.com">Strat Roulette</a>
+		</p>
+	</div>
+</div>
+
+
+@foreach (var video in Model)
+{
+	@Html.Partial("_Video", video)
+}

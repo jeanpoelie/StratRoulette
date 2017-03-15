@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+
+// ReSharper disable once CheckNamespace
+namespace StratRoulette.Extensions
+{
+	using System;
+	using System.Linq;
+	using System.Security.Cryptography;
+
+	/// <summary>
+	/// Contains extension methods for the <see cref="T:System.Collections.Generic.IList`1"/> class.
+	/// </summary>
+	public static class ListExtensions
+	{
+		public static void Shuffle<T>(this IList<T> list)
+		{
+			RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
+			int n = list.Count;
+			while (n > 1)
+			{
+				byte[] box = new byte[1];
+				do provider.GetBytes(box);
+				while (!(box[0] < n * (Byte.MaxValue / n)));
+				int k = (box[0] % n);
+				n--;
+				T value = list[k];
+				list[k] = list[n];
+				list[n] = value;
+			}
+		}
+	}
+}

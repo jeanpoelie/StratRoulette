@@ -1,0 +1,181 @@
+﻿@using StratRoulette.Models
+@{
+	ViewBag.Title = "Strat Roulette Home";
+	var updating = false;
+
+
+	var topPlayedChallenges = ViewBag.TopPlayedChallenges as List<StatisticModel>;
+	var topPlayDates = ViewBag.TopPlayDates as List<StatisticModel>;
+	var topLikeChallenges = ViewBag.TopLikeChallenges as List<StatisticModel>;
+	//var lineChartModel = ViewBag.LineChartModel as LineChartModel;
+}
+
+@section widgets {
+	@*@Html.Partial("_ChallengesLineChart", lineChartModel)*@
+
+	@Html.Partial("_TopPlayedChallenges", topPlayedChallenges)
+
+	@Html.Partial("_TopLikedChallenges", topLikeChallenges)
+
+	@Html.Partial("_TopPlayDates", topPlayDates)
+}
+
+@*<img src="~/Content/Images/banner.jpg" class="img-responsive"/> <br/>*@
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">Welcome to Strat Roulette, here you can challenge yourself and your friends.</h3>
+		<div class="box-tools pull-right">
+			<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		</div><!-- /.box-tools -->
+	</div><!-- /.box-header -->
+	<div class="box-body">
+		<p>
+			If you want to contact us please go to <a href="@Url.Action("Contact", "Home")" class="btn btn-primary">Contact »</a>
+		</p>
+		<p>
+			Or if you want to learn more about us please go to <a href="@Url.Action("About", "Home")" class="btn btn-success">About »</a>
+		</p>
+
+		<p>
+			Join our <a href="https://discord.gg/011ow9wJwvIfYTgGx"><img src="~/Content/Images/discord_logo.png" target="_blank" height="50" width="150" /></a>
+		</p>
+
+		@if (updating)
+		{
+		<div class="alert alert-danger">
+			<h1>
+				<strong>Update in progress.</strong>
+			</h1>
+
+			Hi Everyone! <br />
+			Currently we are doing an update to improve the website we are very sorry if you run in to any problems! <br />
+			<br />
+			We will be fully functionally shortly!
+		</div>
+		}
+
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<!-- small box -->
+				<div class="small-box bg-aqua">
+					<div class="inner">
+						<h3>R6 Challenge</h3>
+
+						<p>Challenge yourself by letting us pick a challenge for you.</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-shuffle"></i>
+					</div>
+					<a href="@Url.Action("RandomChallenge", "TomClancyRainbowSixSiege")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<!-- ./col -->
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<!-- small box -->
+				<div class="small-box bg-green">
+					<div class="inner">
+						<h3>R6 Operator</h3>
+
+						<p>Challenge yourself by letting us randomize your operators.</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-shuffle"></i>
+					</div>
+					<a href="@Url.Action("RandomOperator", "TomClancyRainbowSixSiege")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<!-- small box -->
+				<div class="small-box bg-purple">
+					<div class="inner">
+						<h3>CS:GO Challenge</h3>
+
+						<p>Challenge yourself by randomizing the challenges.</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-shuffle"></i>
+					</div>
+					<a href="@Url.Action("RandomChallenge", "CounterStrikeGlobalOffensive")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<!-- ./col -->
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<!-- small box -->
+				<div class="small-box bg-light-blue">
+					<div class="inner">
+						<h3>CS:GO List</h3>
+
+						<p>See all the challenges we have!</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-shuffle"></i>
+					</div>
+					<a href="@Url.Action("ChallengeList", "CounterStrikeGlobalOffensive")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<!-- small box -->
+				<div class="small-box bg-yellow">
+					<div class="inner">
+						<h3>Contact</h3>
+
+						<p>Here you can go if you need any form of help or have some great ideas!</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-android-contacts"></i>
+					</div>
+					<a href="@Url.Action("Contact")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<!-- ./col -->
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<!-- small box -->
+				<div class="small-box bg-red">
+					<div class="inner">
+						<h3>In Action</h3>
+
+						<p>A page where all the strat roulette video's will be featured!</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-film-marker"></i>
+					</div>
+					<a href="@Url.Action("InAction")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+		</div>
+	</div><!-- /.box-body -->
+</div><!-- /.box -->
+
+@section scripts {
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//Statistics: Line chart
+			@*var playsEachWeek = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeek)))');
+			var playsEachWeekLabel = JSON.parse('@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(lineChartModel.PlaysEachWeekLabel)))');
+			var data = {
+				// A labels array that can contain any sort of values
+				labels: playsEachWeekLabel,
+				// Our series array that contains series objects or in this case series data arrays
+				series: [
+					playsEachWeek
+				]
+			};
+
+			// Create a new line chart object where as first parameter we pass in a selector
+			// that is resolving to our chart container element. The Second parameter
+			// is the actual data object.
+			new Chartist.Line('#challengeLineChart', data);	  *@
+
+			//Statistics: Top played challenges, top liked challenges & top play dates.
+			$("#topPlayedTable, #topPlayedChallengeTable, #topPlayDatesTable").DataTable({
+				paging: false,
+				searching: false,
+				ordering: false
+			});
+		});
+	</script>
+}
