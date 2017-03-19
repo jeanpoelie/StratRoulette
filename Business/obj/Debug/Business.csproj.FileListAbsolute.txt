@@ -1,0 +1,7 @@
+C:\Users\beheerder\Documents\Visual Studio 2015\Projects_Prive\StratRoulette\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+C:\Users\beheerder\Documents\Visual Studio 2015\Projects_Prive\StratRoulette\Business\bin\Debug\Business.dll.config
+C:\Users\beheerder\Documents\Visual Studio 2015\Projects_Prive\StratRoulette\Business\bin\Debug\Business.dll
+C:\Users\beheerder\Documents\Visual Studio 2015\Projects_Prive\StratRoulette\Business\bin\Debug\Business.pdb
+C:\Users\beheerder\Documents\Visual Studio 2015\Projects_Prive\StratRoulette\Business\bin\Debug\MySql.Data.dll
+C:\Users\beheerder\Documents\Visual Studio 2015\Projects_Prive\StratRoulette\Business\obj\Debug\Business.dll
+C:\Users\beheerder\Documents\Visual Studio 2015\Projects_Prive\StratRoulette\Business\obj\Debug\Business.pdb
