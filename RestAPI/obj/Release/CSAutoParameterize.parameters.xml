@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="server=localhost;user id=stratRoulette;persistsecurityinfo=True;database=api;password=ditisgeheim;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Documenten\\Visual\ Studio\ 2017\\Projects\\StratRoulette\\RestAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="StratRouletteConnection-Web.config Connection String" description="StratRouletteConnection Connection String used in web.config by the application to access the database." defaultValue="server=localhost;user id=stratRoulette;persistsecurityinfo=True;database=stratroulette;password=ditisgeheim;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Documenten\\Visual\ Studio\ 2017\\Projects\\StratRoulette\\RestAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='StratRouletteConnection']/@connectionString" />
+  </parameter>
+  <parameter name="StatisticsConnection-Web.config Connection String" description="StatisticsConnection Connection String used in web.config by the application to access the database." defaultValue="server=localhost;user id=stratRoulette;persistsecurityinfo=True;database=statistics;password=ditisgeheim;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Documenten\\Visual\ Studio\ 2017\\Projects\\StratRoulette\\RestAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='StatisticsConnection']/@connectionString" />
+  </parameter>
+</parameters>

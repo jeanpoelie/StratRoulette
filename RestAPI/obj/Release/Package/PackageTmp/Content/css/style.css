@@ -1,0 +1,37 @@
+/* YOUR CUSTOM STYLES */
+/* TEMPLATE STYLES */
+
+html,
+body,
+header,
+.view {
+    height: 100%;
+}
+/* Navigation*/
+
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #2E2E2E;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #2E2E2E;
+    }
+}
+/*Intro*/
+
+.view {
+    background: url("https://d31v04zdn5vmni.cloudfront.net/blog/wp-content/uploads/2012/02/featured-image-snippets-1-690x362.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.maintext {
+    color: #F0FFFF;
+}

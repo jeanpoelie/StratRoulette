@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Business.Extensions
+namespace ModelLibrary.Extensions
 {
 	using System.Data;
 

@@ -38,8 +38,6 @@ namespace StratRoulette
 						"~/Content/css/site.css",
 						"~/Content/css/mdb/mdb.min.css",
 						"~/Content/css/mdb/style.css",
-						//"~/Content/css/AdminLTE.min.css",
-						//"~/Content/css/skins/_all-skins.min.css",
 						"~/Content/css/ionicons.min.css",
 						"~/Content/css/font-awesome.min.css",
 						"~/Content/css/image-picker.css",

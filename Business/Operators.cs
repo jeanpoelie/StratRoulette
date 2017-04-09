@@ -1,4 +1,4 @@
-﻿namespace Business
+﻿namespace ModelLibrary
 {
 	using System.Collections.Generic;
 
@@ -8,19 +8,28 @@
 
 	public class Operators
 	{
-		public static IList<BusinessOperatorModel> GetAll()
+		public static IList<OperatorModel> GetAll()
 		{
-			return DatabaseCommunication.GetAllOperators().ToList<BusinessOperatorModel>();
+			return DatabaseCommunication.GetAllOperators().ToList<OperatorModel>();
 		}
 
-		public static IList<BusinessOperatorModel> GetSide(string side, int number = 0, bool includeRecruit = true)
+		public static IList<OperatorModel> GetSide(string side, int number = 0, bool includeRecruit = true)
 		{
-			return DatabaseCommunication.GetOperatorsOnSide(side, number, includeRecruit).ToList<BusinessOperatorModel>();
+			return DatabaseCommunication.GetOperatorsOnSide(side, number, includeRecruit).ToList<OperatorModel>();
 		}
 
-		public static IList<BusinessOperatorLoadoutModel> GetLoadout(string operatorName)
+		public static IList<OperatorLoadoutModel> GetLoadout(string operatorName)
 		{
-			return DatabaseCommunication.GetOperatorLoadout(operatorName).ToList<BusinessOperatorLoadoutModel>();
-		} 
+			return DatabaseCommunication.GetOperatorLoadout(operatorName).ToList<OperatorLoadoutModel>();
+		}
+
+		#region [Stored Procedures]	
+
+		public static IList<OperatorModel> GetStoredProcedure(string side, string excludedOperators = "", int numberOfOperators = 1)
+		{
+			return DatabaseCommunication.GetOperatorStoredProcedure(side, excludedOperators, numberOfOperators).ToList<OperatorModel>();
+		}
+
+		#endregion
 	}
 }

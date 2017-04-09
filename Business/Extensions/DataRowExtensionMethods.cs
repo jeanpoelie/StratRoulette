@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 
 // ReSharper disable once CheckNamespace
-namespace Business.Extensions
+namespace ModelLibrary.Extensions
 {
 	using System;
 	using System.Data;

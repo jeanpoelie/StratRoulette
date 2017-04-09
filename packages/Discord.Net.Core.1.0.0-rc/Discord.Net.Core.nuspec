@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Discord.Net.Core</id>
+    <version>1.0.0-rc</version>
+    <authors>RogueException</authors>
+    <owners>RogueException</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/RogueException/Discord.Net</projectUrl>
+    <description>The core components for the Discord.Net library.</description>
+    <tags>discord discordapp</tags>
+    <repository type="git" url="git://github.com/RogueException/Discord.Net" />
+    <dependencies>
+      <group targetFramework=".NETStandard1.1">
+        <dependency id="Newtonsoft.Json" version="9.0.1" exclude="Build,Analyzers" />
+        <dependency id="System.Collections.Concurrent" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Collections.Immutable" version="1.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Interactive.Async" version="3.1.0" exclude="Build,Analyzers" />
+        <dependency id="System.Linq" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Linq.Expressions" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Net.Http" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Reflection" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Resources.ResourceManager" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime.Serialization.Primitives" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.3">
+        <dependency id="Newtonsoft.Json" version="9.0.1" exclude="Build,Analyzers" />
+        <dependency id="System.Collections.Concurrent" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Collections.Immutable" version="1.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Interactive.Async" version="3.1.0" exclude="Build,Analyzers" />
+        <dependency id="System.Linq" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Linq.Expressions" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Net.Http" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Reflection" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Resources.ResourceManager" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime.Serialization.Primitives" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <repository type="git" url="git://github.com/RogueException/Discord.Net" xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd" />
+    <title>Discord.Net.Core</title>
+  </metadata>
+</package>

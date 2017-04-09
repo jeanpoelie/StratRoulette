@@ -1,13 +1,13 @@
-﻿namespace Business
+﻿namespace ModelLibrary
 {
 	using System;
 	using System.Collections.Generic;
 	using System.Data;
 	using System.Linq;
 
-	using Business.Extensions;
+	using ModelLibrary.Extensions;
 
-	using StratRoulette.Models;
+	using ModelLibrary.Models;
 
 	public class Statistics
 	{
@@ -45,19 +45,19 @@
 			return DatabaseCommunication.GetNumberOfChallengesSinceDate(numberOfDaysAgo, id, gameName);
 		}
 
-		public static IList<BusinessStatisticModel> GetTopPlayedChallenges(int top, string gameName = "")
+		public static IList<StatisticModel> GetTopPlayedChallenges(int top, string gameName = "")
 		{
-			return DatabaseCommunication.GetTopPlayedChallenges(top, gameName).ToList<BusinessStatisticModel>(exclude: "Date");
+			return DatabaseCommunication.GetTopPlayedChallenges(top, gameName).ToList<StatisticModel>(exclude: "Date");
 		}
 
-		public static IList<BusinessStatisticModel> GetTopLiked(int top, string gameName = "")
+		public static IList<StatisticModel> GetTopLiked(int top, string gameName = "")
 		{
-			return DatabaseCommunication.GetTopLikedChallenges(top, gameName).ToList<BusinessStatisticModel>(exclude: "Date");
+			return DatabaseCommunication.GetTopLikedChallenges(top, gameName).ToList<StatisticModel>(exclude: "Date");
 		}
 
-		public static IList<BusinessStatisticModel> GetTopPlayDays(int top, string gameName = "")
+		public static IList<StatisticModel> GetTopPlayDays(int top, string gameName = "")
 		{
-			return DatabaseCommunication.GetTopPlayedDays(top, gameName).ToList<BusinessStatisticModel>(exclude: "Title");
+			return DatabaseCommunication.GetTopPlayedDays(top, gameName).ToList<StatisticModel>(exclude: "Title");
 		}
 	}
 }

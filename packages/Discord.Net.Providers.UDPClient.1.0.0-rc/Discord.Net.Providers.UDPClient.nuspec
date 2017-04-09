@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Discord.Net.Providers.UDPClient</id>
+    <version>1.0.0-rc</version>
+    <authors>RogueException</authors>
+    <owners>RogueException</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/RogueException/Discord.Net</projectUrl>
+    <description>An optional UDP client provider for Discord.Net using System.Net.UdpClient</description>
+    <tags>discord discordapp</tags>
+    <repository type="git" url="git://github.com/RogueException/Discord.Net" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Discord.Net.Core" version="1.0.0-rc" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <repository type="git" url="git://github.com/RogueException/Discord.Net" xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd" />
+    <title>Discord.Net.Providers.UDPClient</title>
+  </metadata>
+</package>

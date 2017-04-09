@@ -1,4 +1,4 @@
-﻿namespace Business
+﻿namespace ModelLibrary
 {
 	using System;
 	using System.Data;
@@ -536,6 +536,122 @@
 						schema,
 						triggerName))) == 1;
 		}
-		#endregion
-	}
+
+        /// <summary>
+		/// Executes the stored procedure that we parsed with the neccesarry parameters
+		/// </summary>
+		/// <param name="storedProcedure">The Stored Procedure to execute</param>
+		/// <param name="parameters">The MySQL Parameters we need</param>
+		/// <returns>A dataset</returns>
+		public DataSet CallStoredProcedure(string storedProcedure, params MySqlParameter[] parameters)
+        {
+            if (storedProcedure == null)
+            {
+                throw new ArgumentNullException("storedProcedure");
+            }
+
+            Contract.EndContractBlock();
+
+            using (var connection = new MySqlConnection(this.connectionString.ConnectionString))
+            {
+                using (var command = new MySqlCommand(storedProcedure, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = storedProcedure;
+                    command.CommandTimeout = this.commandTimeout;
+
+                    if (parameters != null)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
+
+                    using (var adapter = new MySqlDataAdapter(command))
+                    {
+                        var ds = new DataSet();
+
+                        connection.Open();
+
+                        adapter.Fill(ds);
+
+                        return ds;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Executes the stored procedure that we parsed with the neccesarry parameters
+        /// </summary>
+        /// <param name="storedProcedure">The Stored Procedure to execute</param>
+        /// <param name="parameters">The MySQL Parameters we need</param>
+        /// <returns>The number of affected rows</returns>
+        public int CallNonStoredProcedure(string storedProcedure, params MySqlParameter[] parameters)
+        {
+            if (storedProcedure == null)
+            {
+                throw new ArgumentNullException("storedProcedure");
+            }
+
+            Contract.EndContractBlock();
+
+            using (var connection = new MySqlConnection(this.connectionString.ConnectionString))
+            {
+                using (var command = new MySqlCommand(storedProcedure, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = storedProcedure;
+                    command.CommandTimeout = this.commandTimeout;
+
+                    if (parameters != null)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
+
+                    command.CommandTimeout = this.commandTimeout;
+
+                    connection.Open();
+
+                    return command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Executes the stored procedure that we parsed with the neccesarry parameters
+        /// </summary>
+        /// <param name="storedProcedure">The Stored Procedure to execute</param>
+        /// <param name="parameters">The MySQL Parameters we need</param>
+        /// <returns>the first column of the first row in the result set returned by the query. Additional columns or rows are ignored.</returns>
+        public object CallScalarStoredProcedure(string storedProcedure, params MySqlParameter[] parameters)
+        {
+            if (storedProcedure == null)
+            {
+                throw new ArgumentNullException("storedProcedure");
+            }
+
+            Contract.EndContractBlock();
+
+            using (var connection = new MySqlConnection(this.connectionString.ConnectionString))
+            {
+                using (var command = new MySqlCommand(storedProcedure, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = storedProcedure;
+                    command.CommandTimeout = this.commandTimeout;
+
+                    if (parameters != null)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
+
+                    command.CommandTimeout = this.commandTimeout;
+
+                    connection.Open();
+
+                    return command.ExecuteScalar();
+                }
+            }
+        }
+        #endregion
+    }
 }

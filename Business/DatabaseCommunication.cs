@@ -1,4 +1,4 @@
-﻿namespace Business
+﻿namespace ModelLibrary
 {
 	using System;
 	using System.Collections.Generic;
@@ -10,10 +10,13 @@
 
 	public class DatabaseCommunication
 	{
-		private static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+		private static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["StratRouletteConnection"].ConnectionString;
+		private static readonly string StatsConnectionString = ConfigurationManager.ConnectionStrings["StatisticsConnection"].ConnectionString;
 
 		private static readonly Database Database = new Database(ConnectionString);
+		private static readonly Database StatsDatabase = new Database(StatsConnectionString);
 
+		#region [Old]
 		public static void AddLog(Exception ex)
 		{
 			const string Query = @"INSERT INTO `stratroulette`.`logging` (`Message`, `Source`, `Stacktrace`, `CreateDate`) VALUES (@Message, @Source, @Stacktrace, UTC_DATE())";
@@ -370,17 +373,57 @@ INNER JOIN `stratroulette`.`challenges` `cmd` ON `cmd`.`Id` = `sc`.`ChallengeId`
 
 			return Database.ExecuteQuery(Query + extraFilter + groupBy + orderBy, new MySqlParameter("@Top", top), new MySqlParameter("@GameName", gameName)).Tables[0];
 		}
+		#endregion
 
-		/* -----------------------------------------------------------------------
-								Management Queries
-		--------------------------------------------------------------------------*/
-		public static DataTable ManagementLogin(string username, string password)
+		#region [NewQueries]
+		public static DataTable GetChallengeStoredProcedure(string gameName, string side = null, string difficulty = null)
 		{
-			const string Query = @"SELECT * FROM `stratroulette`.`managementaccount` WHERE `Username` = @Username AND `Password` = @Password";
+			const string StoredProcedure = @"sp_get_challenge";
 
-			var dt = Database.ExecuteQuery(Query, new MySqlParameter("@Username", username), new MySqlParameter("@Password", password)).Tables[0];
+			var dt = Database.CallStoredProcedure(StoredProcedure, 
+				new MySqlParameter[] {
+					new MySqlParameter("@param_GameName", gameName),
+					new MySqlParameter("@param_Side", side),
+					new MySqlParameter("@param_Difficulty", difficulty)
+				}).Tables[0];
 
 			return dt;
 		}
+
+		public static DataTable GetOperatorStoredProcedure(string side, string excludedOperators = "", int numberOfOperators = 1)
+		{
+			const string StoredProcedure = @"sp_get_operator";
+
+			var dt = Database.CallStoredProcedure(StoredProcedure,
+				new MySqlParameter[] {
+					new MySqlParameter("@param_Side", side),
+					new MySqlParameter("@param_ExcludedOperators", excludedOperators),
+					new MySqlParameter("@param_NumberOfOperators", numberOfOperators)
+				}).Tables[0];
+
+			return dt;
+		}
+		#endregion
+
+		#region [Statistics]
+		public static bool Stats_AddChallengeStoredProcedure(string challengeId, string side = null, string difficulty = null)
+		{
+			const string StoredProcedure = @"sp_stats_add_challenge";
+
+			var affectedrows = StatsDatabase.CallNonStoredProcedure(StoredProcedure,
+				new MySqlParameter[] {
+					new MySqlParameter("@param_ChallengeId", challengeId),
+					new MySqlParameter("@param_Side", side),
+					new MySqlParameter("@param_Difficulty", difficulty)
+				});
+
+			if(affectedrows > 0)
+			{
+				return true;
+			}
+
+			return false;
+		}
+		#endregion
 	}
 }

@@ -16,7 +16,7 @@ namespace StratRoulette.Controllers
 
 	using AutoMapper;
 
-	using Business;
+	using ModelLibrary;
 
 	using Models;
 

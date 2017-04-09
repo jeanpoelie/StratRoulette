@@ -37,7 +37,7 @@ namespace MvcAreasApplication.Areas.Manage.Controllers
 			var model = new List<ChallengeModel>();
 			if (!string.IsNullOrEmpty(gameName))
 			{
-				model = Mapper.Map<List<ChallengeModel>>(Business.Challenges.GetAll(gameName));
+				model = Mapper.Map<List<ChallengeModel>>(ModelLibrary.Challenges.GetAll(gameName));
 			}
 
 			return View(model);
@@ -45,9 +45,9 @@ namespace MvcAreasApplication.Areas.Manage.Controllers
 
 		public ActionResult Challenge(int modelId)
 		{
-			var model = Mapper.Map<ChallengeModel>(Business.Challenges.Get(modelId));
-			ViewBag.Maps = Mapper.Map<List<MapModel>>(Business.Challenges.GetMaps(model.Title));
-			ViewBag.GameModes = Mapper.Map<List<GameModeModel>>(Business.Challenges.GetGameModes(model.Title));
+			var model = Mapper.Map<ChallengeModel>(ModelLibrary.Challenges.Get(modelId));
+			ViewBag.Maps = Mapper.Map<List<MapModel>>(ModelLibrary.Challenges.GetMaps(model.Title));
+			ViewBag.GameModes = Mapper.Map<List<GameModeModel>>(ModelLibrary.Challenges.GetGameModes(model.Title));
 			return View(model);
 		}
 
@@ -55,8 +55,8 @@ namespace MvcAreasApplication.Areas.Manage.Controllers
 		public ActionResult Challenge(ChallengeModel model)
 		{
 
-			ViewBag.Maps = Mapper.Map<List<MapModel>>(Business.Challenges.GetMaps(model.Title));
-			ViewBag.GameModes = Mapper.Map<List<GameModeModel>>(Business.Challenges.GetGameModes(model.Title));
+			ViewBag.Maps = Mapper.Map<List<MapModel>>(ModelLibrary.Challenges.GetMaps(model.Title));
+			ViewBag.GameModes = Mapper.Map<List<GameModeModel>>(ModelLibrary.Challenges.GetGameModes(model.Title));
 			return View(model);
 		}
 	}

@@ -18,3 +18,17 @@ F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulett
 F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\obj\Debug\Business.dll
 F:\Documenten\Visual Studio 2015\Projects\DakpanGames\StratRoulette\StratRoulette\Business\obj\Debug\Business.pdb
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\Business.dll.config
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\Business.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\Business.pdb
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\EntityFramework.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\EntityFramework.SqlServer.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\MySql.Data.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\MySql.Data.Entity.EF6.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\EntityFramework.xml
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\EntityFramework.SqlServer.xml
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\obj\Debug\Business.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\obj\Debug\Business.pdb
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\ModelLibrary.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Business\bin\Debug\ModelLibrary.pdb

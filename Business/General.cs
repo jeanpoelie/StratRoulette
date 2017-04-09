@@ -1,28 +1,28 @@
-﻿namespace Business
+﻿namespace ModelLibrary
 {
 	using System;
 	using System.Collections.Generic;
 
 	using Extensions;
 
-	using Models;
+	using ModelLibrary.Models;
 
 	public class General
 	{
-		public static IList<BusinessVideoModel> GetAllVideos()
+		public static IList<VideoModel> GetAllVideos()
 		{
-			return DatabaseCommunication.GetAllVideos().ToList<BusinessVideoModel>();
+			return DatabaseCommunication.GetAllVideos().ToList<VideoModel>();
 		}
 
-		public static IList<BusinessMapModel> GetAllMaps(string gameName)
+		public static IList<MapModel> GetAllMaps(string gameName)
 		{
-			var maps = DatabaseCommunication.GetAllMaps(gameName).ToList<BusinessMapModel>();
+			var maps = DatabaseCommunication.GetAllMaps(gameName).ToList<MapModel>();
 			return maps;
 		}
 
-		public static IList<BusinessGameModeModel> GetAllGameModes(string gameName)
+		public static IList<GameModeModel> GetAllGameModes(string gameName)
 		{
-			var gameModes = DatabaseCommunication.GetAllGameModes(gameName).ToList<BusinessGameModeModel>();
+			var gameModes = DatabaseCommunication.GetAllGameModes(gameName).ToList<GameModeModel>();
 
 			return gameModes;
 		}

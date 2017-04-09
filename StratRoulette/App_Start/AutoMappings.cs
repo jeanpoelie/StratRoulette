@@ -11,7 +11,7 @@ namespace StratRoulette
 {
 	using AutoMapper;
 
-	using Business.Models;
+	using ModelLibrary.Models;
 
 	using Models;
 
@@ -28,20 +28,20 @@ namespace StratRoulette
 			Mapper.Initialize(
 				cfg =>
 					{
-						cfg.CreateMap<BusinessChallengeModel, ChallengeModel>();
-						cfg.CreateMap<ChallengeModel, BusinessChallengeModel>();
-						cfg.CreateMap<BusinessVideoModel, VideoModel>();
-						cfg.CreateMap<VideoModel, BusinessVideoModel>();
-						cfg.CreateMap<BusinessOperatorModel, OperatorModel>().ForMember(m => m.Loadout, p => p.Ignore());
-						cfg.CreateMap<OperatorModel, BusinessOperatorModel>();
-						cfg.CreateMap<BusinessOperatorLoadoutModel, OperatorLoadoutModel>();
-						cfg.CreateMap<OperatorLoadoutModel, BusinessOperatorLoadoutModel>();
-						cfg.CreateMap<BusinessStatisticModel, StatisticModel>();
-						cfg.CreateMap<StatisticModel, BusinessStatisticModel>();
-						cfg.CreateMap<BusinessMapModel, MapModel>();
-						cfg.CreateMap<MapModel, BusinessMapModel>();
-						cfg.CreateMap<BusinessGameModeModel, GameModeModel>();
-						cfg.CreateMap<GameModeModel, BusinessGameModeModel>();
+						cfg.CreateMap<ChallengeModel, ChallengeModel>();
+						cfg.CreateMap<ChallengeModel, ChallengeModel>();
+						cfg.CreateMap<VideoModel, VideoModel>();
+						cfg.CreateMap<VideoModel, VideoModel>();
+						cfg.CreateMap<OperatorModel, OperatorModel>().ForMember(m => m.Loadout, p => p.Ignore());
+						cfg.CreateMap<OperatorModel, OperatorModel>();
+						cfg.CreateMap<OperatorLoadoutModel, OperatorLoadoutModel>();
+						cfg.CreateMap<OperatorLoadoutModel, OperatorLoadoutModel>();
+						cfg.CreateMap<StatisticModel, StatisticModel>();
+						cfg.CreateMap<StatisticModel, StatisticModel>();
+						cfg.CreateMap<MapModel, MapModel>();
+						cfg.CreateMap<MapModel, MapModel>();
+						cfg.CreateMap<GameModeModel, GameModeModel>();
+						cfg.CreateMap<GameModeModel, GameModeModel>();
 					});
 		}
 	}

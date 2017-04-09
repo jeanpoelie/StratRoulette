@@ -1,0 +1,4 @@
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Models\bin\Debug\ModelLibrary.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Models\bin\Debug\ModelLibrary.pdb
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Models\obj\Debug\ModelLibrary.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\Models\obj\Debug\ModelLibrary.pdb

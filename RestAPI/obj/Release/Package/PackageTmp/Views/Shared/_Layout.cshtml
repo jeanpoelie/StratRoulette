@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <!--Mask-->
+    <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand waves-effect waves-light" href="http://stratroulette.dakpangames.com" target="_blank">Strat Roulette API</a>
+            <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        @Html.ActionLink("Home", "Index", "Home", new { area = "", }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Documentation", "", "Swagger", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+                <!--Navbar icons-->
+                <ul class="nav navbar-nav nav-flex-icons ml-auto">
+                    <li class="nav-item">
+                        <a target="_blank" href="https://www.youtube.com/channel/UC1LCsaFLEPnr02Yuo4gbckw" class="nav-link waves-effect waves-light"><i class="fa fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <footer class="page-footer center-on-small-only">
+        <!--Footer Links-->
+        <div class="container-fluid">
+            <div class="row">
+
+                <!--First column-->
+                <div class="col-md-3 offset-lg-1 hidden-lg-down">
+                    <h5 class="title">ABOUT STRATROULETTE API</h5>
+                    <p>This API is made with love by Dakpan and is free to use for everyone, head over to "how to" to get started. </p>
+
+                    <p>All API Keys are monitored and when detected as abuse they will be disabled, if you believe you are disabled by accident feel free to contact me.</p>
+                </div>
+                <!--/.First column-->
+                <hr class="hidden-md-up">
+
+                <!--Second column-->
+                <div class="col-lg-2 col-md-4 offset-lg-1">
+                    <h5 class="title">API</h5>
+                    <ul>
+                        <li><a href="#!">How To</a></li>
+                        <li><a href="#!">About</a></li>
+                        <li><a href="#!">Documentation</a></li>
+                    </ul>
+                </div>
+                <!--/.Second column-->
+
+                <hr class="hidden-md-up">
+
+                <!--Third column-->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="title">Second column</h5>
+                    <ul>
+                        <li><a href="#!">Link 1</a></li>
+                        <li><a href="#!">Link 2</a></li>
+                        <li><a href="#!">Link 3</a></li>
+                    </ul>
+                </div>
+                <!--/.Third column-->
+
+                <hr class="hidden-md-up">
+
+                <!--Fourth column-->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="title">StratRoulette</h5>
+                    <ul>
+                        <li><a href="#!">StratRoulette Home</a></li>
+                        <li><a href="#!">Siege Challenges</a></li>
+                        <li><a href="#!">CS:GO Challenges</a></li>
+                    </ul>
+                </div>
+                <!--/.Fourth column-->
+
+            </div>
+        </div>
+        <!--/.Footer Links-->
+
+        <hr>
+
+        <!--Call to action-->
+        <div class="call-to-action">
+            <h4>REST API for Strat Roulette</h4>
+            <ul>
+                <li>
+                    <h5>Sign up for free</h5>
+                </li>
+                <li><a href="http://api.dakpangames.com/home/howto/" rel="nofollow" class="btn btn-info">Learn how to sign up!</a></li>
+                <li><a href="http://api.dakpangames.com/swagger/" rel="nofollow" class="btn btn-default">Learn more</a></li>
+            </ul>
+        </div>
+        <!--/.Call to action-->
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © @DateTime.Now.Year Copyright: <a target="_blank" href="http://www.stratroulette.dakpangames.com" rel="nofollow"> Strat Roulette Dakpangames</a>
+
+            </div>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            new WOW().init();
+        });
+    </script>
+</body>
+</html>

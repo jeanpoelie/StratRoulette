@@ -1,0 +1,10 @@
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Release\AspNet.Identity.MySQL.dll.config
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Release\AspNet.Identity.MySQL.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Release\AspNet.Identity.MySQL.pdb
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Release\Microsoft.AspNet.Identity.Core.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Release\MySql.Data.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Release\Microsoft.AspNet.Identity.Core.xml
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Release\MySql.Data.xml
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\obj\Release\AspNet.Identity.MySQL.csprojResolveAssemblyReference.cache
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\obj\Release\AspNet.Identity.MySQL.dll
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\obj\Release\AspNet.Identity.MySQL.pdb

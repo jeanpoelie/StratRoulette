@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Discord.Net.Providers.WS4Net</id>
+    <version>1.0.0-rc</version>
+    <title>Discord.Net.Providers.WS4Net</title>
+    <authors>RogueException</authors>
+    <owners>RogueException</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/RogueException/Discord.Net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An optional WebSocket client provider for Discord.Net using WebSocket4Net</description>
+    <tags>discord discordapp</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Discord.Net.Core" version="1.0.0-rc" exclude="Build,Analyzers" />
+        <dependency id="WebSocket4Net" version="0.14.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

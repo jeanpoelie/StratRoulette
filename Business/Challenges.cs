@@ -1,4 +1,4 @@
-﻿namespace Business
+﻿namespace ModelLibrary
 {
 	using System;
 	using System.Collections.Generic;
@@ -35,37 +35,51 @@
 				return "You have already voted.";
 			}
 
-			return "Your vote has been submitted";
+			return "Your vote has been submitted.";
 		}
 
-		public static BusinessChallengeModel Get(int id)
+		public static ChallengeModel Get(int id)
 		{
-			return DatabaseCommunication.GetChallenge(id).ToList<BusinessChallengeModel>().FirstOrDefault();
+			return DatabaseCommunication.GetChallenge(id).ToList<ChallengeModel>().FirstOrDefault();
 		}
 
-		public static BusinessChallengeModel Get(string side, string difficulty, string gameName)
+		public static ChallengeModel Get(string side, string difficulty, string gameName)
 		{
-			return DatabaseCommunication.GetChallenge(side, difficulty, gameName).ToList<BusinessChallengeModel>().FirstOrDefault();
+			return DatabaseCommunication.GetChallenge(side, difficulty, gameName).ToList<ChallengeModel>().FirstOrDefault();
 		}
 
-		public static BusinessChallengeModel GetRandom(string side, string difficulty, string peripheral, int? gameModeId, List<int> maps, string gameName)
+		public static ChallengeModel GetRandom(string side, string difficulty, string peripheral, int? gameModeId, List<int> maps, string gameName)
 		{
-			return DatabaseCommunication.GetRandomChallenge(side, difficulty, peripheral, gameModeId, maps, gameName).ToList<BusinessChallengeModel>().FirstOrDefault();
+			return DatabaseCommunication.GetRandomChallenge(side, difficulty, peripheral, gameModeId, maps, gameName).ToList<ChallengeModel>().FirstOrDefault();
 		}
 
-		public static IList<BusinessChallengeModel> GetAll(string gameName)
+		public static IList<ChallengeModel> GetAll(string gameName)
 		{
-			return DatabaseCommunication.GetAllChallenges(gameName).ToList<BusinessChallengeModel>().OrderBy(c => c.Title).ToList();
+			return DatabaseCommunication.GetAllChallenges(gameName).ToList<ChallengeModel>().OrderBy(c => c.Title).ToList();
 		} 
 
-		public static IList<BusinessMapModel> GetMaps(string challengeTitle)
+		public static IList<MapModel> GetMaps(string challengeTitle)
 		{
-			return DatabaseCommunication.GetChallengeMaps(challengeTitle).ToList<BusinessMapModel>();
+			return DatabaseCommunication.GetChallengeMaps(challengeTitle).ToList<MapModel>();
 		}
 
-		public static IList<BusinessGameModeModel> GetGameModes(string challengeTitle)
+		public static IList<GameModeModel> GetGameModes(string challengeTitle)
 		{
-			return DatabaseCommunication.GetChallengeGameModes(challengeTitle).ToList<BusinessGameModeModel>();
+			return DatabaseCommunication.GetChallengeGameModes(challengeTitle).ToList<GameModeModel>();
 		}
+
+		#region [Stored Procedures]
+
+
+		public static ChallengeModel GetStoredProcedure(string gameName, string side, string difficulty)
+		{
+			var challenge = DatabaseCommunication.GetChallengeStoredProcedure(gameName, side, difficulty).ToList<ChallengeModel>().FirstOrDefault();
+
+			DatabaseCommunication.Stats_AddChallengeStoredProcedure(challenge.Id.ToString(), challenge.Side, challenge.Difficulty);
+
+			return challenge;
+		}
+
+		#endregion
 	}
 }
