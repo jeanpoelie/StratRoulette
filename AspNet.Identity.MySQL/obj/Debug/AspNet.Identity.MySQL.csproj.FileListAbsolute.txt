@@ -17,3 +17,13 @@ F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bi
 F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Debug\MySql.Data.xml
 F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.dll
 F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.pdb
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.csprojResolveAssemblyReference.cache
+G:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.dll.config
+G:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.dll
+G:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.pdb
+G:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+G:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+G:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\bin\Debug\MySql.Data.xml
+G:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.csprojResolveAssemblyReference.cache
+G:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.dll
+G:\Documenten\Visual Studio 2017\Projects\StratRoulette\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.pdb

@@ -930,6 +930,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Git\StratRouletteModels\ModelLibrary.csproj">
+      <Project>{fef1022f-f762-41de-8d38-7ef21956f229}</Project>
+      <Name>ModelLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{209b7687-b521-4ae3-bf8c-98d421bef99c}</Project>
       <Name>Business</Name>

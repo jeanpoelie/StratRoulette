@@ -9,8 +9,9 @@ namespace StratRoulette.Controllers
 	using ModelLibrary;
 
 	using Models;
+    using Business;
 
-	public class HomeController : BaseController
+    public class HomeController : BaseController
 	{
 		public ActionResult Index()
 		{

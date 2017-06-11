@@ -3,11 +3,12 @@
 	using System;
 	using System.Collections.Generic;
 
-	using Extensions;
+    using Business;
+    using Business.Extensions;
 
 	using ModelLibrary.Models;
 
-	public class General
+    public class General
 	{
 		public static IList<VideoModel> GetAllVideos()
 		{

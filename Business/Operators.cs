@@ -1,10 +1,10 @@
-﻿namespace ModelLibrary
+﻿namespace Business
 {
 	using System.Collections.Generic;
 
 	using Extensions;
 
-	using Models;
+	using ModelLibrary.Models;
 
 	public class Operators
 	{

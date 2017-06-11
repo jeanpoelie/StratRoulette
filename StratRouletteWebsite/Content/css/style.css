@@ -1,0 +1,63 @@
+/* YOUR CUSTOM STYLES */
+/* TEMPLATE STYLES */
+
+html,
+body,
+header,
+.view {
+    height: 100%;
+}
+/* Navigation*/
+
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #2E2E2E;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #2E2E2E;
+    }
+}
+/*Intro*/
+
+.view {
+	background: url("http://www.continue-magazin.at/wp-content/uploads/2015/12/tom_clancy_s_rainbow_six__siege___the_operators_by_neonkiler99-d8pjvj5.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.maintext {
+    color: #F0FFFF;
+}
+        
+.scrolling-navbar {
+    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+.top-nav-collapse {
+	background-color: #605ca8;
+}
+
+footer.page-footer {
+	background-color: #605ca8;
+	margin-top: 2rem;
+}
+        
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #1C2331;
+    }
+}
+/*Call to action*/
+        
+.flex-center {
+    color: #fff;
+}

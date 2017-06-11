@@ -11,11 +11,12 @@ namespace StratRoulette.Controllers
 	using ModelLibrary;
 
 	using Models;
+    using Business;
 
-	/// <summary>
-	/// The tom clancy rainbow six siege controller.
-	/// </summary>
-	public class TomClancyRainbowSixSiegeController : BaseController
+    /// <summary>
+    /// The tom clancy rainbow six siege controller.
+    /// </summary>
+    public class TomClancyRainbowSixSiegeController : BaseController
 	{
 		/// <summary>
 		/// The name of the game (controller) this is used to find stuff like statistics, challenges etc.

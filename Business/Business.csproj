@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Elmah, Version=1.2.13605.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\elmah.corelibrary.1.2\lib\Elmah.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Elmah.Mvc, Version=2.1.2.1389, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Elmah.Mvc.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
       <Private>True</Private>
@@ -94,7 +90,7 @@
     <Content Include="Scripts\moment.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Models\ModelLibrary.csproj">
+    <ProjectReference Include="..\..\Git\StratRouletteModels\ModelLibrary.csproj">
       <Project>{fef1022f-f762-41de-8d38-7ef21956f229}</Project>
       <Name>ModelLibrary</Name>
     </ProjectReference>

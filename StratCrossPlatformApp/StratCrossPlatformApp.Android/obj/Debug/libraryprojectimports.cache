@@ -2,8 +2,8 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>F:\Documenten\Visual Studio 2017\Projects\StratRoulette\StratCrossPlatformApp\StratCrossPlatformApp.Android\obj\Debug\__library_projects__\Plugin.CurrentActivity\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>F:\Documenten\Visual Studio 2017\Projects\StratRoulette\StratCrossPlatformApp\StratCrossPlatformApp.Android\obj\Debug\__library_projects__\Plugin.Share\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>G:\Documenten\Visual Studio 2017\Projects\StratRoulette\StratCrossPlatformApp\StratCrossPlatformApp.Android\obj\Debug\__library_projects__\Plugin.CurrentActivity\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>G:\Documenten\Visual Studio 2017\Projects\StratRoulette\StratCrossPlatformApp\StratCrossPlatformApp.Android\obj\Debug\__library_projects__\Plugin.Share\library_project_imports\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Plugin.CurrentActivity\library_project_imports\assets</ResolvedAssetDirectory>
@@ -11,7 +11,7 @@
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>F:\Documenten\Visual Studio 2017\Projects\StratRoulette\StratCrossPlatformApp\StratCrossPlatformApp.Android\obj\Debug\__library_projects__\Plugin.CurrentActivity.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>F:\Documenten\Visual Studio 2017\Projects\StratRoulette\StratCrossPlatformApp\StratCrossPlatformApp.Android\obj\Debug\__library_projects__\Plugin.Share.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>G:\Documenten\Visual Studio 2017\Projects\StratRoulette\StratCrossPlatformApp\StratCrossPlatformApp.Android\obj\Debug\__library_projects__\Plugin.CurrentActivity.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>G:\Documenten\Visual Studio 2017\Projects\StratRoulette\StratCrossPlatformApp\StratCrossPlatformApp.Android\obj\Debug\__library_projects__\Plugin.Share.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

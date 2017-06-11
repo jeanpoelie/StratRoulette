@@ -1,11 +1,11 @@
-﻿namespace ModelLibrary
+﻿namespace Business
 {
 	using System;
 	using System.Collections.Generic;
 	using System.Data;
 	using System.Linq;
-
-	using ModelLibrary.Extensions;
+    
+	using Extensions;
 
 	using ModelLibrary.Models;
 
@@ -47,7 +47,7 @@
 
 		public static IList<StatisticModel> GetTopPlayedChallenges(int top, string gameName = "")
 		{
-			return DatabaseCommunication.GetTopPlayedChallenges(top, gameName).ToList<StatisticModel>(exclude: "Date");
+			 return DatabaseCommunication.GetTopPlayedChallenges(top, gameName).ToList<StatisticModel>(exclude: "Date");
 		}
 
 		public static IList<StatisticModel> GetTopLiked(int top, string gameName = "")

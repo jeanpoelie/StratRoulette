@@ -1,0 +1,1 @@
+F:\Documenten\Visual Studio 2017\Projects\StratRoulette\RestAPI.Tests\obj\Debug\RestAPI.Tests.csprojResolveAssemblyReference.cache

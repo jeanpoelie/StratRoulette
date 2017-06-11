@@ -281,7 +281,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Models\ModelLibrary.csproj">
+    <ProjectReference Include="..\..\Git\StratRouletteModels\ModelLibrary.csproj">
       <Project>{fef1022f-f762-41de-8d38-7ef21956f229}</Project>
       <Name>ModelLibrary</Name>
     </ProjectReference>

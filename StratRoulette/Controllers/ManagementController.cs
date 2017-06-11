@@ -2,17 +2,17 @@
 
 namespace MvcAreasApplication.Areas.Manage.Controllers
 {
-	using System.Collections.Generic;
+    using System.Collections.Generic;
 
-	using AutoMapper;
+    using AutoMapper;
 
-	using global::StratRoulette.Controllers;
-	using global::StratRoulette.Models;
+    using global::StratRoulette.Controllers;
+    using global::StratRoulette.Models;
 
-	/// <summary>
-	/// The management controller.
-	/// </summary>
-	public class ManagementController : BaseController
+    /// <summary>
+    /// The management controller.
+    /// </summary>
+    public class ManagementController : BaseController
 	{
 		/// <summary>
 		/// The index.
@@ -32,32 +32,31 @@ namespace MvcAreasApplication.Areas.Manage.Controllers
 			return View();
 		}
 
-		public ActionResult Challenges(string gameName = "")
-		{
-			var model = new List<ChallengeModel>();
-			if (!string.IsNullOrEmpty(gameName))
-			{
-				model = Mapper.Map<List<ChallengeModel>>(ModelLibrary.Challenges.GetAll(gameName));
-			}
+		//public ActionResult Challenges(string gameName = "")
+		//{
+		//	var model = new List<ChallengeModel>();
+		//	if (!string.IsNullOrEmpty(gameName))
+		//	{
+		//		model = Mapper.Map<List<ChallengeModel>>(Challenges.GetAll(gameName));
+		//	}
 
-			return View(model);
-		}
+		//	return View(model);
+		//}
 
-		public ActionResult Challenge(int modelId)
-		{
-			var model = Mapper.Map<ChallengeModel>(ModelLibrary.Challenges.Get(modelId));
-			ViewBag.Maps = Mapper.Map<List<MapModel>>(ModelLibrary.Challenges.GetMaps(model.Title));
-			ViewBag.GameModes = Mapper.Map<List<GameModeModel>>(ModelLibrary.Challenges.GetGameModes(model.Title));
-			return View(model);
-		}
+		//public ActionResult Challenge(int modelId)
+		//{
+		//	var model = Mapper.Map<ChallengeModel>(Challenges.Get(modelId));
+		//	ViewBag.Maps = Mapper.Map<List<MapModel>>(Challenges.GetMaps(model.Title));
+		//	ViewBag.GameModes = Mapper.Map<List<GameModeModel>>(Challenges.GetGameModes(model.Title));
+		//	return View(model);
+		//}
 
-		[HttpPost]
-		public ActionResult Challenge(ChallengeModel model)
-		{
-
-			ViewBag.Maps = Mapper.Map<List<MapModel>>(ModelLibrary.Challenges.GetMaps(model.Title));
-			ViewBag.GameModes = Mapper.Map<List<GameModeModel>>(ModelLibrary.Challenges.GetGameModes(model.Title));
-			return View(model);
-		}
+		//[HttpPost]
+		//public ActionResult Challenge(ChallengeModel model)
+		//{
+		//	ViewBag.Maps = Mapper.Map<List<MapModel>>(Challenges.GetMaps(model.Title));
+		//	ViewBag.GameModes = Mapper.Map<List<GameModeModel>>(Challenges.GetGameModes(model.Title));
+		//	return View(model);
+		//}
 	}
 }

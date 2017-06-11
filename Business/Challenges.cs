@@ -1,4 +1,4 @@
-﻿namespace ModelLibrary
+﻿namespace Business
 {
 	using System;
 	using System.Collections.Generic;
@@ -6,7 +6,7 @@
 
 	using Extensions;
 
-	using Models;
+	using ModelLibrary.Models;
 
 	public enum FeedbackType
 	{
