@@ -1,49 +1,4 @@
-﻿@*<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
-</html>*@
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -53,6 +8,9 @@
 	@Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    @{ 
+        var games = ViewBag.Games as List<SelectListItem>;
+    }
 
 	<!--Mask-->
 	<nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
@@ -60,18 +18,19 @@
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand waves-effect waves-light" href="http://stratroulette.dakpangames.com" target="_blank">Strat Roulette API</a>
+			<a class="navbar-brand waves-effect waves-light" href="http://stratroulette.dakpangames.com" target="_blank">Strat Roulette</a>
 			<div class="collapse navbar-collapse" id="navbarNav1">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						@Html.ActionLink("Home", "Index", "Home", new { area = "", }, new { @class = "nav-link" })
 					</li>
-					<li class="nav-item">
+					@*<li class="nav-item">
 						@Html.ActionLink("Documentation", "", "Swagger", new { area = "" }, new { @class = "nav-link" })
-					</li>
+					</li>*@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					@Html.Partial("_LoginPartial")		   
+                    <li>@Html.DropDownList("game", games, new { @class = "form-control" })</li>
+					@*@Html.Partial("_LoginPartial")*@		   
 					<li class="nav-item">
 						<a target="_blank" href="https://www.youtube.com/channel/UC1LCsaFLEPnr02Yuo4gbckw" class="nav-link waves-effect waves-light"><i class="fa fa-youtube"></i></a>
 					</li>

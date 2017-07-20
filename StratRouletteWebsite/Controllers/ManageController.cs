@@ -11,7 +11,7 @@ using StratRouletteWebsite.Models;
 namespace StratRouletteWebsite.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -49,8 +49,7 @@ namespace StratRouletteWebsite.Controllers
                 _userManager = value;
             }
         }
-
-        //
+        
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {

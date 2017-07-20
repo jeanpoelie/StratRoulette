@@ -17,4 +17,3 @@ The default Json*Deserializer* is mostly compatible, but it does not support
 all features which Json.NET has (like the ability to support a custom [JsonConverter]
 by decorating a certain property with an attribute). If you need these features, you
 must take care of the deserialization yourself to get it working.
-
